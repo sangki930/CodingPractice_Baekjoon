@@ -1,4 +1,4 @@
-package BOJ.implementation.파이어스톰;
+package BOJ.implementation.마법사상어와파이어스톰;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
