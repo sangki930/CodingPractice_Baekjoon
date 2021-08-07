@@ -1,0 +1,1 @@
+package BOJ.backtracking.NQueens;
