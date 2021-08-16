@@ -25,7 +25,7 @@ public class Main {
 			st = new StringTokenizer(br.readLine());
 			k = Integer.parseInt(st.nextToken());
 			lineReach[i] = new ArrayList<Integer>();
-			
+			//
 			for(int j=0;j<k;j++) {
 				int curnum = Integer.parseInt(st.nextToken());
 				numberLineMap.putIfAbsent(curnum, new ArrayList<Integer>());
