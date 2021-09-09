@@ -10,7 +10,7 @@ public class Main {
 	static HashMap<Integer,List<Integer>> numberLineMap = new HashMap();
 	static List<Integer>[] lineReach = new List[11];
 	static int n,k;
-	static Queue<Integer> q = new ArrayDeque();
+	static Queue<Integer> q = new ArrayDeque<>();
 	static boolean[] visit = new boolean[11];
 	
 	public static void main(String[] args) throws IOException {
