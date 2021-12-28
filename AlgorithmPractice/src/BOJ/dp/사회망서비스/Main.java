@@ -6,7 +6,8 @@ import java.io.InputStreamReader;
 
 public class Main {
 
-	static int n,parent;
+	static int n;
+	static int[][] dp;
 	
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
