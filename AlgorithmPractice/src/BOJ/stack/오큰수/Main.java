@@ -20,7 +20,7 @@ public class Main {
 		int[] a= new int[n];
 		// 배열 생성
 		int[] ans = new int[n];
-		int[] ai = new int[n];
+		
 		// 정답 배열, 정답 인덱스 배열 생성
 		
 		String[] tmp = br.readLine().split(" ");
