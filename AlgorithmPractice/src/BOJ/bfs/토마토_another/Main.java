@@ -47,8 +47,7 @@ public class Main {
 				}
 			}
 		}
-		
-		
+			
 		flag=true;
 		
 		loop : for(int i=0;i<h;i++) {
