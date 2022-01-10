@@ -3,6 +3,7 @@ package BOJ.unionfind.교수님은기다리지않는다;
 import java.io.*;
 import java.util.*;
 
+//교수님은 기다리지 않는다.
 public class Main{
     static int[] parents = new int[1000000];
     static long[] weight = new long[1000000];
