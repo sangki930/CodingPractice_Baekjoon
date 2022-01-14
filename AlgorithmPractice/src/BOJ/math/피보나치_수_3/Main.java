@@ -17,7 +17,6 @@ public class Main {
         if(n >=pisano){
             n %= pisano;
         }
- 
         System.out.println(arr[(int) n]);
     }
 }
