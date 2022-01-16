@@ -20,7 +20,7 @@ public class Main {
 		k = Integer.parseInt(input[2]);
 		
 		int height = (int)Math.ceil(Math.log(n)/Math.log(2));
-//		System.out.println((int)Math.ceil(Math.log(n)/Math.log(2)));
+
 		tree = new long[(int)Math.pow(2, height+1)];
 		arr =new long[1000001];
 		for(int i=0;i<n;i++) {
