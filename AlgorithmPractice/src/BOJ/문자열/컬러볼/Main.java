@@ -32,8 +32,7 @@ public class Main {
 		
 		int n = Integer.parseInt(br.readLine());
 		Pair[] pairs = new Pair[n];
-		long[] save = new long[200001];
-		long[] ss = new long[2001];
+		int[] save = new int[200001];
 		for(int i=0;i<n;i++) {
 			String[] input = br.readLine().split(" ");
 			int c = Integer.parseInt(input[0]), s = Integer.parseInt(input[1]);
@@ -45,24 +44,16 @@ public class Main {
 				return Integer.compare(a.c, b.c);
 			return Integer.compare(a.s, b.s);
 		});
-		System.out.println(Arrays.toString(pairs));
-		result[0]=0;
-		save[pairs[0].c]+=pairs[0].s;
-		pairs[0].sum=pairs[0].s;
-		ss[pairs[0].s]++;
 		
-		for(int i=1;i<pairs.length;i++) {
-			
-			result[pairs[i].id] = pairs[i-1].sum-save[pairs[i].c]-ss[pairs[i].s]*pairs[i].s;
-			if(pairs[i].c==pairs[i-1].c && pairs[i].s==pairs[i-1].s) {
-				System.out.println("¹ÝÀÀ");
-				result[pairs[i].id]+=pairs[i].s;
-			}
-				
-			save[pairs[i].c]+=pairs[i].s;
-			ss[pairs[i].s]++;
-			pairs[i].sum=pairs[i-1].sum+pairs[i].s;
-			System.out.println(Arrays.toString(pairs));
+		int sum=0;
+		for(int i=0,j=0;i<pairs.length;i++) {
+			Pair current = pairs[i];
+			while(pairs[j].s < current.s) {
+                sum += pairs[j].s;
+                save[pairs[j].c] += pairs[j].s;
+                j++;
+            }
+            result[current.id] = sum - save[current.c]; 
 		}
 
 		for(long r : result)
