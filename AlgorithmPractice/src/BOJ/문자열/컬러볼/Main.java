@@ -16,12 +16,7 @@ class Pair{
 		this.s = s;
 		this.id=id;
 	}
-	@Override
-	public String toString() {
-		return "Pair [c=" + c + ", s=" + s + ", id=" + id + ", sum=" + sum + "]";
-	}
-	
-	
+
 }
 
 public class Main {
@@ -29,36 +24,36 @@ public class Main {
 	public static void main(String[] args) throws IOException {
 		// TODO Auto-generated method stub
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		
+
 		int n = Integer.parseInt(br.readLine());
 		Pair[] pairs = new Pair[n];
 		int[] save = new int[200001];
-		for(int i=0;i<n;i++) {
+		for (int i = 0; i < n; i++) {
 			String[] input = br.readLine().split(" ");
 			int c = Integer.parseInt(input[0]), s = Integer.parseInt(input[1]);
-			pairs[i]=new Pair(c,s,i);
+			pairs[i] = new Pair(c, s, i);
 		}
 		long[] result = new long[n];
-		Arrays.sort(pairs, (a,b)->{
-			if(a.s==b.s)
+		Arrays.sort(pairs, (a, b) -> {
+			if (a.s == b.s)
 				return Integer.compare(a.c, b.c);
 			return Integer.compare(a.s, b.s);
 		});
-		
-		int sum=0;
-		for(int i=0,j=0;i<pairs.length;i++) {
+
+		int sum = 0;
+		for (int i = 0, j = 0; i < pairs.length; i++) {
 			Pair current = pairs[i];
-			while(pairs[j].s < current.s) {
-                sum += pairs[j].s;
-                save[pairs[j].c] += pairs[j].s;
-                j++;
-            }
-            result[current.id] = sum - save[current.c]; 
+			while (pairs[j].s < current.s) {
+				sum += pairs[j].s;
+				save[pairs[j].c] += pairs[j].s;
+				j++;
+			}
+			result[current.id] = sum - save[current.c];
 		}
 
-		for(long r : result)
+		for (long r : result)
 			System.out.println(r);
-		
+
 		br.close();
 	}
 
