@@ -20,7 +20,6 @@ public class Main {
 		}
 		
 		while(n-->0) {
-			
 			int temp = Integer.parseInt(br.readLine());
 			System.out.println(arr[temp][0]+" "+arr[temp][1]);
 		}
