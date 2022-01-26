@@ -10,18 +10,20 @@ public class Main {
         int n = Integer.parseInt(br.readLine());
         int[] arr = new int[n];
         String[] input = br.readLine().split(" ");
-        long result=0L;
-        long[][] dp = new long[2][n];
+        
+        long[][] dp = new long[n+1][2];
         for(int i=0;i<n;i++) {
         	arr[i]=Integer.parseInt(input[i]);
         }
-        
-        dp[0][0] = dp[1][0] = arr[0];
-        
-        for(int i=1;i<n;i++) {
-        	
+        long answer=arr[0];
+        for(int i=0;i<n;i++) {
+        	dp[i][0] = dp[i][1] = arr[i];
+        	if(i==0) continue;
+        	dp[i][0] = Math.max(dp[i-1][0]+arr[i],arr[i]);
+        	dp[i][1] = Math.max(dp[i-1][0],dp[i-1][1]+arr[i]);
+        	answer = Math.max(answer, Math.max(dp[i][0], dp[i][1]));
         }
-        
+        System.out.println(answer);
         br.close();
     }
 }
