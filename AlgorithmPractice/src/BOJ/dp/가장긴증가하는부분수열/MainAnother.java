@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 
+// ÀÌºÐÅ½»ö
 public class MainAnother {
 
 	public static void main(String[] args) throws IOException{

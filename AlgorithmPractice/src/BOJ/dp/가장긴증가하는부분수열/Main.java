@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Arrays;
 
+// 다이내믹 프로그래밍
 public class Main {
 
 	public static void main(String[] args) throws NumberFormatException, IOException {
@@ -17,9 +18,7 @@ public class Main {
 			Arrays.fill(dp,1);
 			int answer = 0;
 			for(int i=1;i<input.length;i++) {
-				
 				for(int j=0;j<i;j++) {
-					
 					int num1 = Integer.parseInt(input[j]);
 					int num2 = Integer.parseInt(input[i]);
 					if(num1<num2) {
