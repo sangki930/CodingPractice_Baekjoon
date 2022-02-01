@@ -1,4 +1,4 @@
-package BOJ.¼öÇÐ.multiply;
+package BOJ.math.multiply;
 
 import java.io.BufferedReader;
 import java.io.IOException;

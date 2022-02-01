@@ -1,4 +1,4 @@
-package BOJ.¼öÇÐ.Fly_me_to_the_Alpha_Centauri;
+package BOJ.math.Fly_me_to_the_Alpha_Centauri;
 
 import java.util.*;
 public class Main {

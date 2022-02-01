@@ -1,4 +1,4 @@
-package BOJ.정렬.온라인판매;
+package BOJ.sort.온라인판매;
 
 import java.io.BufferedReader;
 import java.io.IOException;

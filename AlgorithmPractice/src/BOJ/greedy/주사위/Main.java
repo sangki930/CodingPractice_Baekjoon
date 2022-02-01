@@ -1,4 +1,4 @@
-package BOJ.그리디.주사위;
+package BOJ.greedy.주사위;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;

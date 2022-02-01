@@ -1,4 +1,4 @@
-package BOJ.수학.약수;
+package BOJ.math.약수;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;

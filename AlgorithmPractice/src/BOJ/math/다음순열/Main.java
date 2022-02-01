@@ -1,4 +1,4 @@
-package BOJ.수학.다음순열;
+package BOJ.math.다음순열;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;

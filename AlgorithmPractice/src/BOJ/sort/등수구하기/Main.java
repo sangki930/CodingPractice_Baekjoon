@@ -1,4 +1,4 @@
-package BOJ.정렬.등수구하기;
+package BOJ.sort.등수구하기;
 
 import java.io.BufferedReader;
 import java.io.IOException;
