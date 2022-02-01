@@ -1,4 +1,4 @@
-package BOJ.누적합.구간합구하기01;
+package BOJ.prefixSum.구간합구하기01;
 
 import java.io.BufferedReader;
 import java.io.IOException;

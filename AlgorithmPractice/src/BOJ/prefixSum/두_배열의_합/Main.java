@@ -1,4 +1,4 @@
-package BOJ.누적합.두_배열의_합;
+package BOJ.prefixSum.두_배열의_합;
 
 import java.io.BufferedReader;
 import java.io.IOException;

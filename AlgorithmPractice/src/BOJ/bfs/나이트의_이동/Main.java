@@ -1,4 +1,4 @@
-package BOJ.너비_우선_탐색.나이트의_이동;
+package BOJ.bfs.나이트의_이동;
 
 import java.io.BufferedReader;
 import java.io.IOException;

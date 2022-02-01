@@ -1,4 +1,4 @@
-package BOJ.누적합.이차원배열의합;
+package BOJ.prefixSum.이차원배열의합;
 
 import java.io.*;
 import java.util.Arrays;

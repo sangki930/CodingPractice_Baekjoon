@@ -1,4 +1,4 @@
-package BOJ.너비_우선_탐색.구슬_탈출_02;
+package BOJ.bfs.구슬_탈출_02;
 
 public class Main {
 
