@@ -1,4 +1,4 @@
-package BOJ.기하학.어린왕자;
+package BOJ.geometry.어린왕자;
 
 import java.io.*;
 

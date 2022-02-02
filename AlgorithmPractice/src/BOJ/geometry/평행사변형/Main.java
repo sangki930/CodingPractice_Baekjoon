@@ -1,4 +1,4 @@
-package BOJ.기하학.평행사변형;
+package BOJ.geometry.평행사변형;
 
 import java.util.Scanner;
 
