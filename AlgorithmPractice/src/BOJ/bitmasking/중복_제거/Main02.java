@@ -7,7 +7,6 @@ import java.util.StringTokenizer;
 // 비트 마스킹
 // 출처 : 백준
 public class Main02 {
-
 	static final int MAX = 33554432;
 	static byte[] arr = new byte[MAX/8+1];
 	public static void main(String[] args) throws Exception {
