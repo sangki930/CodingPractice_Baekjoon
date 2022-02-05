@@ -7,9 +7,6 @@ import java.math.BigInteger;
 
 public class Main {
 
-	private static final int MAX = 6;
-	private static final int PRICE = 5;
-	
 	public static void main(String[] args) throws IOException {
 		// TODO Auto-generated method stub
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
