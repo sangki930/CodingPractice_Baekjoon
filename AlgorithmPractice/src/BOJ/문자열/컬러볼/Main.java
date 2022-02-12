@@ -1,60 +1,75 @@
 package BOJ.문자열.컬러볼;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Queue;
+import java.util.Scanner;
 
-class Pair{
-	int c;
-	int s;
-	int id;
-	long sum;
-	public Pair(int c, int s,int id) {
-		super();
-		this.c = c;
-		this.s = s;
-		this.id=id;
+class Point{
+	int x;
+	int y;
+	public Point(int x,int y) {
+		this.x=x;
+		this.y=y;
 	}
-
 }
 
 public class Main {
 
-	public static void main(String[] args) throws IOException {
-		// TODO Auto-generated method stub
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	static int dx[]= {0,0,-1,1};
+	static int dy[]= {-1,1,0,0};
+	
+    public static void main(String[] args){
+    	Scanner sc = new Scanner(System.in);
+    	String input[]=sc.nextLine().split(" ");
+    	int m=Integer.parseInt(input[0]);
+    	int n=Integer.parseInt(input[1]);
+    	int map[][]=new int[n][m];
+    	List<Point> tomato=new ArrayList<>();
+    	for(int i=0;i<n;i++) {
+    		input=sc.nextLine().split(" ");
+    		for(int j=0;j<input.length;j++) {
+    			map[i][j]=Integer.parseInt(input[j]);
+    			if(input[j].equals("1")) {
+    				tomato.add(new Point(j,i));
+    			}
+    		}
+    	}
+    	int answer=0;
 
-		int n = Integer.parseInt(br.readLine());
-		Pair[] pairs = new Pair[n];
-		int[] save = new int[200001];
-		for (int i = 0; i < n; i++) {
-			String[] input = br.readLine().split(" ");
-			int c = Integer.parseInt(input[0]), s = Integer.parseInt(input[1]);
-			pairs[i] = new Pair(c, s, i);
-		}
-		long[] result = new long[n];
-		Arrays.sort(pairs, (a, b) -> {
-			if (a.s == b.s)
-				return Integer.compare(a.c, b.c);
-			return Integer.compare(a.s, b.s);
-		});
+    		int dp[][]=new int[n][m];
+        	boolean visited[][]=new boolean[n][m];
+    		Queue<Point> queue=new LinkedList<>();
+    		
+    		for(Point p : tomato)
+    			queue.offer(p);
+    		while(!queue.isEmpty()) {
+    			Point point=queue.poll();
+    			for(int i=0;i<4;i++) {
+    				int nx=point.x+dx[i];
+    				int ny=point.y+dy[i];
+    				
+    				if(nx>=0 && ny>=0 && nx<m && ny<n &&
+    						map[ny][nx]==0 && !visited[ny][nx]) {
+    					map[ny][nx]=1;
+    					visited[ny][nx]=true;
+    					queue.offer(new Point(nx,ny));
+    					dp[ny][nx]=dp[point.y][point.x]+1;
+    					answer=Math.max(answer,dp[ny][nx]);
+    				}
+    				
+    			}
+    		}
 
-		int sum = 0;
-		for (int i = 0, j = 0; i < pairs.length; i++) {
-			Pair current = pairs[i];
-			while (pairs[j].s < current.s) {
-				sum += pairs[j].s;
-				save[pairs[j].c] += pairs[j].s;
-				j++;
-			}
-			result[current.id] = sum - save[current.c];
-		}
-
-		for (long r : result)
-			System.out.println(r);
-
-		br.close();
-	}
-
+    	
+    	loop : for(int i=0;i<n;i++)
+    		for(int j=0;j<m;j++)
+    			if(map[i][j]==0)
+    			{
+    				answer=-1;
+    				break loop;
+    			}
+    	System.out.println(answer);
+    }
 }
