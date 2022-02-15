@@ -36,17 +36,7 @@ public class Main {
 		
 		int a=-2,b=-2;
 		
-		PriorityQueue<Point> pq = new PriorityQueue<>((x,y)->{
-			if(Math.abs(x.x-a)+Math.abs(x.y-b)==Math.abs(y.x-a)+Math.abs(y.y-b)) {
-				return -1;
-			}
-			return 1;
-		});
 		
-		while(!queue.isEmpty()) {
-			Point point = queue.poll();
-			
-		}
 		
 		br.close();
 	}
