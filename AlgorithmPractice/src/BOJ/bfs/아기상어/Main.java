@@ -7,7 +7,20 @@ import java.util.LinkedList;
 import java.util.PriorityQueue;
 
 class Point{
-	int x,y;
+	int x,y,dis;
+
+	public Point(int x, int y, int dis) {
+		super();
+		this.x = x;
+		this.y = y;
+		this.dis = dis;
+	}
+
+	@Override
+	public String toString() {
+		return "Point [x=" + x + ", y=" + y + ", dis=" + dis + "]";
+	}
+	
 }
 
 public class Main {
@@ -30,15 +43,33 @@ public class Main {
 			}
 				
 		}
+		LinkedList<Point> queue1 = new LinkedList<>();//외부 큐
+		queue1.offer(new Point(s_x,s_y,0));
 		
-		LinkedList<Point> queue = new LinkedList<>();
-		queue.offer(new Point());
+		while(true) {
+			
+			Point point = queue1.poll();
+			
+			
+			
+			if(true) break;
+		}
 		
 		int a=-2,b=-2;
-		
-		
-		
+
 		br.close();
+	}
+	
+	public void bfs(Point input, int[][] arr) {
+		LinkedList<Point> queue = new LinkedList<>();//내부 큐
+		queue.offer(input);
+		while(!queue.isEmpty()) {
+			Point point = queue.poll();
+			for(int i=0;i<4;i++) {
+				int nx = point.x+dx[i], ny = point.y+dy[i];
+				
+			}
+		}
 	}
 
 }
