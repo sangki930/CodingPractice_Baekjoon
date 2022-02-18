@@ -26,11 +26,12 @@ class Point{
 public class Main {
 
 	static int[] dx = {-1,0,1,0}, dy = {0,-1,0,1};
+	static int n;
 	public static void main(String[] args) throws IOException{
 		// TODO Auto-generated method stub
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		
-		int n = Integer.parseInt(br.readLine());
+		n = Integer.parseInt(br.readLine());
 		int[][] map = new int[n][n];
 		int s_x=-1,s_y=-1;
 		for(int i=0;i<n;i++) {
@@ -63,10 +64,13 @@ public class Main {
 	public void bfs(Point input, int[][] arr) {
 		LinkedList<Point> queue = new LinkedList<>();//내부 큐
 		queue.offer(input);
+		boolean[][] visited = new boolean[n][n];
 		while(!queue.isEmpty()) {
 			Point point = queue.poll();
+			
 			for(int i=0;i<4;i++) {
 				int nx = point.x+dx[i], ny = point.y+dy[i];
+				if(nx<0 || ny<0 || nx>=n || ny>=n) continue; // 장외이거나 방문했다면
 				
 			}
 		}
