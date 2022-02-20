@@ -19,14 +19,17 @@ class Point{
 	@Override
 	public String toString() {
 		return "Point [x=" + x + ", y=" + y + ", dis=" + dis + "]";
-	}
-	
+	}	
 }
 
 public class Main {
 
 	static int[] dx = {-1,0,1,0}, dy = {0,-1,0,1};
-	static int n;
+	static boolean[][] visited;
+	static int n,shark = 2; //n : 한변의 길이, shark : 아기상어의 크기
+	static int minFish = Integer.MAX_VALUE;
+	static LinkedList<Point> queue1 = new LinkedList<>();//외부 큐
+	static int eat=0,answer=0;//먹은 물고기 수
 	public static void main(String[] args) throws IOException{
 		// TODO Auto-generated method stub
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -41,39 +44,64 @@ public class Main {
 				if(map[i][j]==9) {
 					s_x=j;s_y=i;
 				}
+				minFish = Math.min(map[i][j], minFish);
 			}
 				
 		}
-		LinkedList<Point> queue1 = new LinkedList<>();//외부 큐
+		
 		queue1.offer(new Point(s_x,s_y,0));
 		
 		while(true) {
-			
 			Point point = queue1.poll();
-			
-			
-			
-			if(true) break;
+			map = bfs(point,map);
+			if(map==null) break;
+			answer=queue1.peek().dis;
 		}
 		
-		int a=-2,b=-2;
+		System.out.println(answer);
 
 		br.close();
 	}
 	
-	public void bfs(Point input, int[][] arr) {
+	public static int[][] bfs(Point input, int[][] arr) {
 		LinkedList<Point> queue = new LinkedList<>();//내부 큐
+		PriorityQueue<Point> pq = new PriorityQueue<>((a,b)->{
+			if(a.dis==b.dis) {
+				if(a.y==b.y)
+					return Integer.compare(a.x,b.x);
+				return Integer.compare(a.y,b.y);
+			}
+			return Integer.compare(a.dis, b.dis);
+		});
+		Point output = null;
+		int d=0;
 		queue.offer(input);
-		boolean[][] visited = new boolean[n][n];
+		arr[input.y][input.x]=0;
+		boolean[][] visitedTmp = new boolean[n][n];
 		while(!queue.isEmpty()) {
 			Point point = queue.poll();
-			
+			if(visitedTmp[point.y][point.x]) continue;
+			if(arr[point.y][point.x]>shark) continue;
+			if(arr[point.y][point.x]>=1 && arr[point.y][point.x]<Math.min(shark, 7)) {
+				pq.offer(point);
+			}
+			visitedTmp[point.y][point.x] = true;
 			for(int i=0;i<4;i++) {
 				int nx = point.x+dx[i], ny = point.y+dy[i];
 				if(nx<0 || ny<0 || nx>=n || ny>=n) continue; // 장외이거나 방문했다면
-				
+				queue.offer(new Point(nx,ny,point.dis+1));
 			}
 		}
+		output = pq.poll();
+		if(output==null) return null;
+		arr[output.y][output.x]=9;
+		queue1.offer(output);
+		eat++;
+		if(eat==shark) {
+			shark++;
+			eat=0;
+		}
+		return arr;
 	}
 
 }
