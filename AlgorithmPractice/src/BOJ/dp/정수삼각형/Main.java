@@ -1,34 +1,45 @@
 package BOJ.dp.Á¤¼ö»ï°¢Çü;
 
-import java.util.Scanner;
- 
-public class Main {
- 
-    static int[][] list;
-    public static void main(String[] args) {
- 
-        Scanner sc = new Scanner(System.in);
-        int n = sc.nextInt();
-        int sum = 0;
-        list = new int[n + 1][n + 1];
- 
-        for (int i = 1; i <= n; i++) {
-            for (int j = 1; j <= i; j++) {
-                list[i][j] = sc.nextInt();
- 
-                if (j == 1)
-                    list[i][j] = list[i - 1][j] + list[i][j];
-                else if (j == i)
-                    list[i][j] = list[i - 1][j - 1] + list[i][j];
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.Arrays;
+
+public class Main{
+    public static void bi_search(int arr[],int target){
+            int n=arr.length;
+            int start=0;
+            int end=n-1;
+            int mid=(start+end)/2;
+            
+            while(end>=start){
+                mid=(start+end)/2;
+                if(arr[mid]==target){
+                    System.out.println(1);
+                    return;
+                }else if(arr[mid]>target)
+                    end=mid-1;
                 else
-                    list[i][j] = Math.max(list[i - 1][j - 1], list[i - 1][j]) + list[i][j];
- 
-                if (sum < list[i][j])
-                    sum = list[i][j];
+                    start=mid+1;
             }
-        }
-        System.out.println(sum);
- 
+            
+            System.out.println(0);
     }
- 
+    public static void main(String[] args) throws IOException{
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        int a=Integer.parseInt(br.readLine());
+        int arr[]=new int[a];
+        String[] input = br.readLine().split(" ");
+        for(int i=0;i<a;i++)
+            arr[i]=Integer.parseInt(input[i]);
+        Arrays.sort(arr);
+        int b=Integer.parseInt(br.readLine());
+        
+        input = br.readLine().split(" ");
+        for(int i=0;i<b;i++){
+            bi_search(arr,Integer.parseInt(input[i])); 
+        }
+       
+        br.close();
+    }
 }
