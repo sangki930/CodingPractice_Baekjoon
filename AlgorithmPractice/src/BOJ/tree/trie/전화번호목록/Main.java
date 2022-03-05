@@ -7,6 +7,20 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Map;
 
+class Data{
+	int level;
+	char c;
+	public Data(int level, char c) {
+		super();
+		this.level = level;
+		this.c = c;
+	}
+	@Override
+	public String toString() {
+		return "Data [level=" + level + ", c=" + c + "]";
+	}
+}
+
 public class Main {
 
 	public static void main(String[] args) throws IOException{
