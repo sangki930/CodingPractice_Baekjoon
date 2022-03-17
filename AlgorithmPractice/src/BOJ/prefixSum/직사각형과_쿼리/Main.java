@@ -11,15 +11,15 @@ public class Main {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		
 		int n = Integer.parseInt(br.readLine());
-		int[][][] arr = new int[10][n+1][n+1];
-		int[][][] dp = new int[10][n+1][n+1];
+		int[][][] arr = new int[11][n+1][n+1];
+		int[][][] dp = new int[11][n+1][n+1];
 		String[] input;
 		for(int i=1;i<=n;i++) {
 			input = br.readLine().split(" ");
 			for(int j=1;j<=n;j++) {
 				int k = Integer.parseInt(input[j-1]);
 				dp[k][i][j]++;
-				for(int l=1;l<=9;l++)
+				for(int l=1;l<=10;l++)
 					dp[l][i][j]+=dp[l][i-1][j]+dp[l][i][j-1]-dp[l][i-1][j-1];
 			}
 		}
@@ -30,7 +30,7 @@ public class Main {
 			int x1 = Integer.parseInt(input[0]), y1 = Integer.parseInt(input[1]);
 			int x2 = Integer.parseInt(input[2]), y2 = Integer.parseInt(input[3]);
 			int answer=0;
-			for(int k=1;k<=9;k++) {
+			for(int k=1;k<=10;k++) {
 				int v = dp[k][x2][y2] - dp[k][x2][y1-1] - dp[k][x1-1][y2] + dp[k][x1-1][y1-1];
 				answer+=Math.min(v, 1);
 			}
