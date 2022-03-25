@@ -10,7 +10,6 @@ import java.util.StringTokenizer;
 
 class Edge {
     int s, e, cost;
-
     Edge(int s, int e, int cost) {
         this.s = s;
         this.e = e;
