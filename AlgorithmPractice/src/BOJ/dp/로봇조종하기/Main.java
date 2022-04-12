@@ -5,6 +5,7 @@ import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
+import java.util.Arrays;
 
 public class Main {
 
@@ -14,28 +15,29 @@ public class Main {
 
         String[] input = br.readLine().split(" ");
         int n = Integer.parseInt(input[0]), m = Integer.parseInt(input[1]);
-        int[][] map = new int[n][m];
-        long[][] dp = new long[n][m];
+        int[][] map = new int[n+1][m+1];
+        long[][] dp = new long[n+1][m+1];
         
-        for(int i=0;i<n;i++) {
+        for(int i=1;i<=n;i++) {
         	input = br.readLine().split(" ");
-        	for(int j=0;j<m;j++) {
-        		map[i][j] = Integer.parseInt(input[j]);
-        		dp[i][j] = Long.MIN_VALUE;
+        	for(int j=1;j<=m;j++) {
+        		map[i][j] = Integer.parseInt(input[j-1]);
+//        		dp[i][j] = Long.MIN_VALUE;
         	}
         }
-        dp[0][0] = map[0][0];
-        for(int i=1;i<m;i++) {
-        	dp[0][i] = Math.max(dp[0][i-1]+map[0][i], dp[0][i]);
-        }
+        for(int i=1;i<=m;i++) dp[1][i] = dp[1][i-1]+map[1][i];
 //      for(int i=0;i<n;i++)
 //    	System.out.println(Arrays.toString(dp[i]));
 //      System.out.println("====================");
-        for(int i=1;i<n;i++) {
-        	int[] tmp1 = new int[m], tmp2 = new int[m];
-        	
+        for(int i=2;i<=n;i++) {
+        	long[] tmp1 = new long[m+1], tmp2 = new long[m+1];
+        	tmp1[1] = dp[i-1][1] + map[i][1];
+        	tmp2[m] = dp[i-1][m] + map[i][m];
+        	for(int j=2; j<=m; j++) tmp1[j] = Math.max(dp[i-1][j],tmp1[j-1]) + map[i][j];
+            for(int j=m-1;j>=0; j--) tmp2[j] = Math.max(dp[i-1][j], tmp2[j+1]) + map[i][j];
+            for(int j=1; j<=m; j++) dp[i][j] = Math.max(tmp1[j], tmp2[j]);
         }
-        bw.write(String.valueOf(dp[n-1][m-1]));
+        bw.write(String.valueOf(dp[n][m]));
         br.close();
         bw.close();
     }
