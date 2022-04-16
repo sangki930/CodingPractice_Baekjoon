@@ -5,7 +5,6 @@ import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
-import java.util.Arrays;
 
 public class Main {
 
@@ -26,9 +25,6 @@ public class Main {
         	}
         }
         for(int i=1;i<=m;i++) dp[1][i] = dp[1][i-1]+map[1][i];
-//      for(int i=0;i<n;i++)
-//    	System.out.println(Arrays.toString(dp[i]));
-//      System.out.println("====================");
         for(int i=2;i<=n;i++) {
         	long[] tmp1 = new long[m+1], tmp2 = new long[m+1];
         	tmp1[1] = dp[i-1][1] + map[i][1];
