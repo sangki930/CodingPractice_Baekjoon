@@ -10,7 +10,7 @@ public class Main {
 	static int[][] dp, map;
 	static int n,m;
 	public static void main(String[] args) throws IOException {
-		// TODO Auto-generated method stub
+		
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		String[] input = br.readLine().split(" ");
 		n = Integer.parseInt(input[0]); m = Integer.parseInt(input[1]);
