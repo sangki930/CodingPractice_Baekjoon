@@ -27,7 +27,6 @@ public class Main {
 		System.out.println(dfs(0,0));
 		br.close();
 	}
-	
 	static int dfs(int y, int x) {
 		if(y==n-1 && x==m-1) {
 			return 1;
