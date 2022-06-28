@@ -16,10 +16,6 @@ class Point{
 		this.dis = dis;
 	}
 
-	@Override
-	public String toString() {
-		return "Point [x=" + x + ", y=" + y + ", dis=" + dis + "]";
-	}	
 }
 
 public class Main {
