@@ -10,7 +10,6 @@ class Point{
 	int x,y,dis;
 
 	public Point(int x, int y, int dis) {
-		super();
 		this.x = x;
 		this.y = y;
 		this.dis = dis;
