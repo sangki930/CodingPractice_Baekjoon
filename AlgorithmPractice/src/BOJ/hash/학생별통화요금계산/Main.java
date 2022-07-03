@@ -11,10 +11,7 @@ import java.util.Map;
 class Data{
 	String name;
 	int cnt;
-	/**
-	 * @param name
-	 * @param cnt
-	 */
+	
 	public Data(String name, int cnt) {
 		super();
 		this.name = name;
