@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
+//[13459] ±∏ΩΩ≈ª√‚2 (∞ÒµÂ2)
 public class Main {
 
 	public static void main(String[] args) throws IOException {
