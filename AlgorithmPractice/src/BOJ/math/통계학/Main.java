@@ -29,7 +29,7 @@ public class Main {
 		int mode = 10000;
 		
 		for(int i = 0; i < n; i++) {
-			int jump = 0;	// 동일한 수가 나온만큼 i 값 jump 시킬 변수 
+			int jump = 0;
 			int cnt = 1;
 			int i_value = arr[i];
 			
