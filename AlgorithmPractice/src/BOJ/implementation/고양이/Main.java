@@ -1,5 +1,6 @@
 package BOJ.implementation.고양이;
 
+// 고양이 - 브론즈5
 public class Main{
 	 
     public static void main(String args[]){
