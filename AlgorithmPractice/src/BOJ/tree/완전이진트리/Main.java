@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 
-
+// 완전이진트리(9934) 실버 1
 public class Main {
 
 	static int k,num_node,idx;
