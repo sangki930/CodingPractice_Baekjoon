@@ -20,7 +20,6 @@ public class Main {
 		for(int i=0;i<n;i++){
 			arr[i]=Integer.parseInt(input[i]);
 		}
-//		System.out.println(Arrays.toString(arr));
 		func(0,0);
 		System.out.println(s==0?answer-1:answer);
 		br.close();
@@ -29,7 +28,6 @@ public class Main {
 	public static void func(int cur, int sum) {
 		if (cur == n) { 
 			if (sum == s) {
-//				System.out.println("°á°ú");
 				answer++;
 			} 
 			return; 
