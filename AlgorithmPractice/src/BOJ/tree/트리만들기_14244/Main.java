@@ -4,7 +4,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-// 트리만들기
+// 트리만들기 - 실버
 public class Main {
 
 	public static void main(String[] args) throws IOException{
