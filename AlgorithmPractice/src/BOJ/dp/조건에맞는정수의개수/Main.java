@@ -4,7 +4,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
  
-// 조건에 맞는 정수의 개수 - 실버1
+// 조건에 맞는 정수의 개수-실버1
 public class Main {
  
 	static int[] arr = {-2,-1,0,1,2};
