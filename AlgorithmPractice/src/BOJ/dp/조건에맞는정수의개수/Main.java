@@ -29,9 +29,9 @@ public class Main {
         }
         
         long answer = 0;
-        for(int i=0;i<9;i++) {
+        for(int i=0;i<9;i++) 
         	answer=(answer+dp[i][n-1])%987654321L;
-        }
+        
         
         System.out.println(answer);
         br.close();
