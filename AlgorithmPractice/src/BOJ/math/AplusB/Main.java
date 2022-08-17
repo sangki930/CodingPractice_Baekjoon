@@ -1,6 +1,8 @@
 package BOJ.math.AplusB;
 
 import java.util.*;
+
+// A+B - ∫Í∑–¡Ó 5
 public class Main{
     public static void main(String args[]){
        Scanner sc = new Scanner(System.in);
