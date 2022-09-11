@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.LinkedList;
 
+// 골드2 / 2048(Easy) / SW 역량테스트 기출문제
 public class Main {
 
 	static int[][] map;
