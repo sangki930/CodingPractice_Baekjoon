@@ -4,8 +4,18 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.LinkedList;
+
+class Data{
+	int num; // 수
+	boolean flag; // 결합한 적 있는 지
+	public Data(int num, boolean flag) {
+		super();
+		this.num = num;
+		this.flag = flag;
+	}
+	
+}
 
 // 골드2 / 2048(Easy) / SW 역량테스트 기출문제
 public class Main {
@@ -27,47 +37,29 @@ public class Main {
 
 		func(4, 5, new ArrayList<>());
 
-		int[][] t = { 
-				{ 8, 4, 8, 2 }, 
-				{ 0, 4, 0, 0 }, 
-				{ 16, 0, 0, 0 }, 
-				{ 0, 8, 2, 0 }, 
-				};
-		goUp(t);
-		
-		for (int[] q : t)
-			System.out.println(Arrays.toString(q));
-//		System.out.println(result.size());
-//		for(ArrayList<Integer> arr : result)
-//			System.out.println(arr);
-//		for(ArrayList<Integer> arr : result) {
-//			int[][] test = arrayCopy(map);
-////			System.out.println("---------------------------------"+arr);
-//			for(int i : arr) {
-//				switch(i) {
-//					case 0->{
-//						goLeft(test);
-//					}
-//					case 1->{
-//						goRight(test);
-//					}
-//					case 2->{
-//						goUp(test);
-//					}
-//					case 3->{
-//						goDown(test);
-//					}
-//				}
-////				if(answer==64) {
-////					for(int[] ss : test)
-////						System.out.println(Arrays.toString(ss));
-////					System.out.println("=======================>");
-////				}
-//				
-//			}
-//			
-//			
-//		}
+		for(ArrayList<Integer> arr : result) {
+			int[][] test = arrayCopy(map);
+
+			for(int i : arr) {
+				switch(i) {
+					case 0->{
+						goLeft(test);
+					}
+					case 1->{
+						goRight(test);
+					}
+					case 2->{
+						goUp(test);
+					}
+					case 3->{
+						goDown(test);
+					}
+				}
+				
+			}
+			
+			
+		}
 		System.out.println(answer);
 
 		br.close();
@@ -102,21 +94,21 @@ public class Main {
 			int[] tmp = new int[arr[0].length];
 			int k = 0;
 
-			LinkedList<Integer> queue = new LinkedList<>();
+			LinkedList<Data> queue = new LinkedList<>();
 			for (int j = 0; j < arr[0].length; j++) {
 				if (arr[i][j] == 0)
 					continue;
 				if (queue.isEmpty()) {
-					queue.offer(arr[i][j]);
+					queue.offer(new Data(arr[i][j],false));
 				} else {
-					if (queue.peekLast() == arr[i][j]) {
-						queue.offer(queue.pollLast() + arr[i][j]);
+					if (queue.peekLast().num == arr[i][j] && !queue.peekLast().flag) {
+						queue.offer(new Data(queue.pollLast().num + arr[i][j],true));
 					} else
-						queue.offer(arr[i][j]);
+						queue.offer(new Data(arr[i][j],false));
 				}
 			}
 			while (!queue.isEmpty()) {
-				tmp[k] = queue.poll();
+				tmp[k] = queue.poll().num;
 				answer = Math.max(tmp[k], answer);
 				k++;
 			}
@@ -132,21 +124,21 @@ public class Main {
 			int[] tmp = new int[arr[0].length];
 			int k = arr[0].length-1;
 
-			LinkedList<Integer> queue = new LinkedList<>();
+			LinkedList<Data> queue = new LinkedList<>();
 			for (int j = arr[0].length-1; j >= 0; j--) {
 				if (arr[i][j] == 0)
 					continue;
 				if (queue.isEmpty()) {
-					queue.offerFirst(arr[i][j]);
+					queue.offerFirst(new Data(arr[i][j],false));
 				} else {
-					if (queue.peekFirst() == arr[i][j]) {
-						queue.offerFirst(queue.pollFirst() + arr[i][j]);
+					if (queue.peekFirst().num == arr[i][j] && !queue.peekFirst().flag) {
+						queue.offerFirst(new Data(queue.pollFirst().num + arr[i][j],true));
 					} else
-						queue.offerFirst(arr[i][j]);
+						queue.offerFirst(new Data(arr[i][j],false));
 				}
 			}
 			while (!queue.isEmpty()) {
-				tmp[k] = queue.pollLast();
+				tmp[k] = queue.pollLast().num;
 				answer = Math.max(tmp[k], answer);
 				k--;
 			}
@@ -159,21 +151,21 @@ public class Main {
 	public static int[][] goUp(int[][] arr){
 		
 		for(int i=0;i<arr[0].length;i++) {
-			LinkedList<Integer> queue = new LinkedList<>();
+			LinkedList<Data> queue = new LinkedList<>();
 			for(int j=0;j<arr.length;j++) {
 				if(arr[j][i]==0) continue;
-				if(queue.isEmpty()) queue.offer(arr[j][i]);
+				if(queue.isEmpty()) queue.offer(new Data(arr[j][i],false));
 				else {
-					if(queue.peekLast()==arr[j][i])
-						queue.offer(arr[j][i]+queue.pollLast());
+					if(queue.peekLast().num==arr[j][i] && !queue.peekLast().flag)
+						queue.offer(new Data(arr[j][i]+queue.pollLast().num,true));
 					else
-						queue.offer(arr[j][i]);
+						queue.offer(new Data(arr[j][i],false));
 				}
 			}
 			
 			for(int j=0;j<arr.length;j++) {
 				if(!queue.isEmpty())
-					arr[j][i] = queue.poll();
+					arr[j][i] = queue.poll().num;
 				else
 					arr[j][i] = 0;
 				answer = Math.max(answer, arr[j][i]);
@@ -187,21 +179,21 @@ public class Main {
 	public static int[][] goDown(int[][] arr){
 			
 			for(int i=0;i<arr[0].length;i++) {
-				LinkedList<Integer> queue = new LinkedList<>();
+				LinkedList<Data> queue = new LinkedList<>();
 				for(int j=arr.length-1;j>=0;j--) {
 					if(arr[j][i]==0) continue;
-					if(queue.isEmpty()) queue.offerFirst(arr[j][i]);
+					if(queue.isEmpty()) queue.offerFirst(new Data(arr[j][i],false));
 					else {
-						if(queue.peek()==arr[j][i])
-							queue.offerFirst(arr[j][i]+queue.pollFirst());
+						if(queue.peek().num==arr[j][i] && !queue.peek().flag)
+							queue.offerFirst(new Data(arr[j][i]+queue.pollFirst().num,true));
 						else
-							queue.offerFirst(arr[j][i]);
+							queue.offerFirst(new Data(arr[j][i],false));
 					}
 				}
 				
 				for(int j=arr.length-1;j>=0;j--) {
 					if(!queue.isEmpty())
-						arr[j][i] = queue.pollLast();
+						arr[j][i] = queue.pollLast().num;
 					else
 						arr[j][i] = 0;
 					answer = Math.max(answer, arr[j][i]);
