@@ -1,9 +1,12 @@
-package BOJ.greedy.πË;
+package BOJ.greedy.Î∞∞;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Arrays;
+import java.util.Comparator;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class Main {
 
@@ -17,23 +20,41 @@ public class Main {
 			crane[i] = Integer.parseInt(input[i]);
 		}
 		int m = Integer.parseInt(br.readLine());
-		int[] boxes = new int[n];
-		input = br.readLine().split(" ");
-		for(int i=0;i<m;i++) {
-			boxes[i] = Integer.parseInt(input[i]);
-		}
-		int left = 0, right= n-1;
-		Arrays.sort(boxes);
+		int[] boxes = new int[m];
+		System.out.println(Arrays.toString(br.readLine().split(" ")));
+		List<Integer> queue = Arrays.stream(br.readLine().split(" ")).mapToInt(Integer::parseInt).boxed().collect(Collectors.toList());
+		
+		queue.sort(Comparator.reverseOrder());
 		Arrays.sort(crane);
-		while(left<=right) {
-			for(int i=n-1;i>=0;i--) {
-//				while()
+//		System.out.println(Arrays.toString(boxes));
+//		System.out.println(Arrays.toString(crane));
+		int answer = 0;
+		if(crane[n-1]<queue.get(0)) {
+			answer = -1;
+		}else {
+			int cnt = 0;
+			boolean[] completed = new boolean[m];
+			while(!queue.isEmpty()) {
+				int tmp = cnt;
+				for(int j=n-1;j>=0;j--) {
+					for(int i=0;i<queue.size();i++) {
+						if(crane[j]>=queue.get(i)) {
+							queue.remove(i);
+							break;
+						}
+					}
+				}
+
+//				System.out.println(Arrays.toString(completed));
+				answer++;
 			}
-			left++;
-			right--;
+//			System.out.println("ÎèÑÎã¨?");
 		}
+
+		System.out.println(answer);
 		
 		br.close();
 	}
 
 }
+
