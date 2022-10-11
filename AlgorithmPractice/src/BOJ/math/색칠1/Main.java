@@ -24,11 +24,25 @@ public class Main {
 		long x2 = Long.parseLong(input[6]);
 		long y2 = Long.parseLong(input[7]);
 		
-		long len = Math.min(Math.abs(0-f), Math.abs(f-w));
-		long new_f = len;
-		
-		long answer = (y2-y1)*(Math.min(x2, new_f)-x1)*(c+1)*2+Math.max((x2-new_f)*(y2-y1), 0)*(c+1);
-		System.out.println(w*h-answer);
+		long area = (x2 - x1) * (y2 - y1) * (c+1);
+		long answer = 0;
+		if (f <= w / 2) { 
+			if (f <= x1) { 
+				answer = w*h - area;
+			}
+			else { 
+				answer = w*h - (area + (Math.min(f, x2) - x1) * (y2 - y1) * (c+1));
+			}
+		} 
+		else {
+			if (w <= x1 + f) {
+				answer = w*h - area;
+			}
+			else { 
+				answer = w*h - (area + (Math.min(w, f + x2) - (f + x1)) * (y2 - y1) * (c+1));
+			}
+		}
+		System.out.println(answer);
 		
 		br.close();
 	}
