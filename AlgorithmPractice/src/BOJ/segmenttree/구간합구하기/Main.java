@@ -9,7 +9,6 @@ import java.io.OutputStreamWriter;
 public class Main {
 	
 	// 구간 합 구하기
-		
 		private static long query(long[] tree, int node, int start, int end, int left, int right) {
 	        if (left > end || right < start) {
 	            return 0;
