@@ -4,6 +4,10 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
+class State{
+	
+}
+
 //[13459] ±∏ΩΩ≈ª√‚ (∞ÒµÂ2)
 public class Main {
 
@@ -15,8 +19,14 @@ public class Main {
 		int n = Integer.parseInt(input[0]), m = Integer.parseInt(input[1]);
 		char[][] map = new char[n][m];
 		for(int i=0;i<n;i++) {
-			
+			char[] tmp = br.readLine().toCharArray();
+			for(int j=0;j<m;j++) {
+				map[i][j] = tmp[j];
+			}
 		}
+		
+		
+		
 		br.close();
 	}
 
