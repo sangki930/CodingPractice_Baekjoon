@@ -10,7 +10,8 @@ import java.util.Set;
 public class Main {
 
 	public static void main(String[] args) throws NumberFormatException, IOException {
-		// TODO Auto-generated method stub
+		
+		
 		BufferedReader br =  new BufferedReader(new InputStreamReader(System.in));
 		String[] tmp = br.readLine().split(" ");
 		int n = Integer.parseInt(tmp[0]);
