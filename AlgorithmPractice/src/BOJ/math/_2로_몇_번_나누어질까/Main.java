@@ -20,9 +20,9 @@ public class Main {
 	public static long func(long num) {
 		long ret = 0, tmp = 1;
 		while(num!=0) {
-			ret+=(long)Math.ceil(num)*tmp;
-			num /= 2;
-			tmp *= 2;
+			ret+=(long)Math.ceil(num/2.0)*tmp;
+			num /= 2L;
+			tmp *= 2L;
 		}
 		return ret;
 	}
