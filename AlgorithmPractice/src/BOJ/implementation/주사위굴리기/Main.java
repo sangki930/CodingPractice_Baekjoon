@@ -3,6 +3,7 @@ package BOJ.implementation.주사위굴리기;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Arrays;
 
 public class Main {
 
@@ -18,6 +19,12 @@ public class Main {
 		
 		// 동쪽이 1, 서쪽은 2, 북쪽은 3, 남쪽은 4
 		int[][] map = new int[n][m];
+		
+		for(int i=0;i<n;i++) {
+			map[i] = Arrays.stream(br.readLine().split(" "))
+					.mapToInt(Integer::parseInt)
+					.toArray();
+		}
 		
 		for(int i=0;i<k;i++) {
 			
