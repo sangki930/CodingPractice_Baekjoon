@@ -44,9 +44,9 @@ public class Main {
 					if(o1.w==o2.w) return Integer.compare(o1.d, o2.d);
 					return Integer.compare(o1.w, o2.w);
 				}
-				);
+		);
 		
-		for(int i=0, cnt=0;i<list.size();) { // cnt : 과제 개수
+		for(int i=0;i<list.size();) { // cnt : 과제 개수
 			int day = list.get(i).d;
 			while(i<list.size() && list.get(i).d==day) {
 				if(pq.size()<day) {
