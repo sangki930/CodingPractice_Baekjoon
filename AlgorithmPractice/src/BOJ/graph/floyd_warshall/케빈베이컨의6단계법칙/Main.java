@@ -1,4 +1,4 @@
-package BOJ.graph.floyd_warshall.플로이드;
+package BOJ.graph.floyd_warshall.케빈베이컨의6단계법칙;
 
 import java.io.BufferedReader;
 import java.io.IOException;
