@@ -45,7 +45,7 @@ public class Main {
 					return Integer.compare(o1.w, o2.w);
 				}
 				);
-		int first = list.get(0).d;
+		
 		for(int i=0, cnt=0;i<list.size();) { // cnt : 과제 개수
 			int day = list.get(i).d;
 			while(i<list.size() && list.get(i).d==day) {
