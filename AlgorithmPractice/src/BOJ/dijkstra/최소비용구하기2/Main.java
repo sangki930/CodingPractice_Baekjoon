@@ -65,19 +65,15 @@ public class Main {
         );
         long[] dis = new long[n+1];
         int[] parents = new int[n+1];
-        LinkedList<Integer>[] tracelist = new LinkedList[n+1];
         Arrays.fill(dis,Long.MAX_VALUE-Integer.MAX_VALUE);
         dis[a] = 0;
         parents[a] = -1;
 
-//        pq.offer(new Data(a,0,0));
-        tracelist[a] = new LinkedList<>();
-        tracelist[a].offer(a);
+
         pq.offer(new Data(a,0,0, -1));
         boolean[] visited = new boolean[n+1];
         while(!pq.isEmpty()){
             Data data = pq.poll();
-//            System.out.println(data.e);
             if(visited[data.e]) continue;
             visited[data.e] = true;
             ArrayList<Node> arr = graph[data.e];
@@ -90,7 +86,7 @@ public class Main {
                     parents[x] = data.e;
                 }
             }
-//            System.out.println(Arrays.toString(dis));
+
         }
         System.out.println(dis[b]);
 
