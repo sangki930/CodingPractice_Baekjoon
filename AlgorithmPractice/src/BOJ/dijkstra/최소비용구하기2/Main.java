@@ -59,7 +59,7 @@ public class Main {
         PriorityQueue<Data> pq = new PriorityQueue<>(
                 (o1,o2)->{
                     if(o1.dis==o2.dis)
-                        return Integer.compare(o1.level,o2.level);
+                        return Integer.compare(o1.e,o2.e);
                     return Long.compare(o1.dis,o2.dis);
                 }
         );
@@ -74,12 +74,16 @@ public class Main {
         tracelist[a] = new LinkedList<>();
         tracelist[a].offer(a);
         pq.offer(new Data(a,0,0, -1));
+        boolean[] visited = new boolean[n+1];
         while(!pq.isEmpty()){
             Data data = pq.poll();
 //            System.out.println(data.e);
+            if(visited[data.e]) continue;
+            visited[data.e] = true;
             ArrayList<Node> arr = graph[data.e];
             for(Node node : arr){
                 int x = node.x;
+
                 if(dis[x]>dis[data.e]+ node.v){
                     dis[x] = dis[data.e]+node.v;
                     pq.offer(new Data(x,dis[data.e]+node.v, data.level+1,data.e));
@@ -100,7 +104,7 @@ public class Main {
 
         }
         sb.insert(0, a+" ");
-        System.out.println(cnt);
+        System.out.println(cnt+1);
         System.out.println(sb);
         br.close();
     }
