@@ -103,7 +103,15 @@ public class Main {
 							// 빨간구슬
 							while(true) {
 								if(!isInMap(new_red_x-1,new_red_y)) break;
+								if(map[new_red_x][new_red_y]!='#') break;
 								new_red_x--;
+							}
+							
+							// 파란구슬
+							while(true) {
+								if(!isInMap(new_blue_x-1,new_blue_y)) break;
+								if(map[new_blue_x][new_blue_y]!='#') break;
+								new_blue_x--;
 							}
 							
 						}
