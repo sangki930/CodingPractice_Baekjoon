@@ -44,7 +44,7 @@ public class Main {
     static void prime() {
 
         int n = 4000000;
-        // 소수가 아니면 true
+        // �냼�닔媛� �븘�땲硫� true
         prime[0] = prime[1] = true;
 
         for (int i = 2; i*i <= n; i++) {
