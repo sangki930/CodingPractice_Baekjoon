@@ -1,4 +1,4 @@
-package BOJ.geometry.¾î¸°¿ÕÀÚ;
+package BOJ.geometry.ì–´ë¦°ì™•ì;
 
 import java.io.*;
 

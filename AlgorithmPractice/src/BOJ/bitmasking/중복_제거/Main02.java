@@ -1,11 +1,11 @@
-package BOJ.bitmasking.Áßº¹_Á¦°Å;
+package BOJ.bitmasking.ì¤‘ë³µ_ì œê±°;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-// ºñÆ® ¸¶½ºÅ·
-// ÃâÃ³ : ¹éÁØ
+// ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½Å·
+// ï¿½ï¿½Ã³ : ï¿½ï¿½ï¿½ï¿½
 public class Main02 {
 	static final int MAX = 33554432;
 	static byte[] arr = new byte[MAX/8+1];

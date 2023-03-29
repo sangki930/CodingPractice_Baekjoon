@@ -1,4 +1,4 @@
-package BOJ.dp.Æò¹üÇÑ¹è³¶;
+package BOJ.dp.í‰ë²”í•œë°°ë‚­;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -12,8 +12,8 @@ public class Main {
 		String input[]=br.readLine().split(" ");
 		
 		int n = Integer.parseInt(input[0]),k=Integer.parseInt(input[1]);
-		int[] w = new int[n + 1]; // ¹«°Ô
-		int[] v = new int[n + 1]; // °¡Ä¡
+		int[] w = new int[n + 1]; // ï¿½ï¿½ï¿½ï¿½
+		int[] v = new int[n + 1]; // ï¿½ï¿½Ä¡
 		int[][] dp = new int[n + 1][k + 1];
  
 		for (int i = 1; i <= n; i++) {
@@ -25,11 +25,11 @@ public class Main {
 		for (int i = 1; i <= n; i++) {
 			for (int j = 1; j <= k; j++) {
 				
-				// i¹øÂ° ¹«°Ô¸¦ ´õ ´ãÀ» ¼ö ¾ø´Â °æ¿ì 
+				// iï¿½ï¿½Â° ï¿½ï¿½ï¿½Ô¸ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ 
 				if(w[i] > j) {
 					dp[i][j] = dp[i - 1][j];
 				}
-				// i¹øÂ° ¹«°Ô¸¦ ´õ ´ãÀ» ¼ö ÀÖ´Â °æ¿ì 
+				// iï¿½ï¿½Â° ï¿½ï¿½ï¿½Ô¸ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ 
 				else {
 					dp[i][j] = Math.max(dp[i - 1][j], dp[i - 1][j - w[i]] + v[i]);
 				}

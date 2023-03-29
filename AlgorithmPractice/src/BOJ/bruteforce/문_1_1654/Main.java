@@ -1,4 +1,4 @@
-package BOJ.bruteforce.¹®_1_1654;
+package BOJ.bruteforce.ë¬¸_1_1654;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;

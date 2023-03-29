@@ -1,4 +1,4 @@
-package BOJ.bfs.¾Æ±â»ó¾î;
+package BOJ.bfs.ì•„ê¸°ìƒì–´;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -21,10 +21,10 @@ public class Main {
 
 	static int[] dx = {-1,0,1,0}, dy = {0,-1,0,1};
 	static boolean[][] visited;
-	static int n,shark = 2; //n : ÇÑº¯ÀÇ ±æÀÌ, shark : ¾Æ±â»ó¾îÀÇ Å©±â
+	static int n,shark = 2; //n : ï¿½Ñºï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½, shark : ï¿½Æ±ï¿½ï¿½ï¿½ï¿½ï¿½ Å©ï¿½ï¿½
 	static int minFish = Integer.MAX_VALUE;
-	static LinkedList<Point> queue1 = new LinkedList<>();//¿ÜºÎ Å¥
-	static int eat=0,answer=0;//¸ÔÀº ¹°°í±â ¼ö
+	static LinkedList<Point> queue1 = new LinkedList<>();//ï¿½Üºï¿½ Å¥
+	static int eat=0,answer=0;//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
 	public static void main(String[] args) throws IOException{
 		// TODO Auto-generated method stub
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -59,7 +59,7 @@ public class Main {
 	}
 	
 	public static int[][] bfs(Point input, int[][] arr) {
-		LinkedList<Point> queue = new LinkedList<>();//³»ºÎ Å¥
+		LinkedList<Point> queue = new LinkedList<>();//ï¿½ï¿½ï¿½ï¿½ Å¥
 		PriorityQueue<Point> pq = new PriorityQueue<>((a,b)->{
 			if(a.dis==b.dis) {
 				if(a.y==b.y)
@@ -83,7 +83,7 @@ public class Main {
 			visitedTmp[point.y][point.x] = true;
 			for(int i=0;i<4;i++) {
 				int nx = point.x+dx[i], ny = point.y+dy[i];
-				if(nx<0 || ny<0 || nx>=n || ny>=n) continue; // Àå¿ÜÀÌ°Å³ª ¹æ¹®Çß´Ù¸é
+				if(nx<0 || ny<0 || nx>=n || ny>=n) continue; // ï¿½ï¿½ï¿½ï¿½Ì°Å³ï¿½ ï¿½æ¹®ï¿½ß´Ù¸ï¿½
 				queue.offer(new Point(nx,ny,point.dis+1));
 			}
 		}

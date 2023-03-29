@@ -1,4 +1,4 @@
-package BOJ.dijkstra.�ּҺ�뱸�ϱ�2;
+package BOJ.dijkstra.최소비용구하기2;
 
 import java.io.BufferedReader;
 import java.io.IOException;

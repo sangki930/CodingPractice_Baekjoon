@@ -1,4 +1,4 @@
-package BOJ.dijkstra.ÃÖ´Ü°æ·Î;
+package BOJ.dijkstra.ìµœë‹¨ê²½ë¡œ;
 
 import java.io.*;
 import java.util.*;
@@ -36,20 +36,20 @@ public class Main {
         for(int i = 1; i <= v; i++){
             list[i] = new ArrayList<>();
         }
-        // ¸®½ºÆ®¿¡ ±×·¡ÇÁ Á¤º¸¸¦ ÃÊ±âÈ­
+        // ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½×·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê±ï¿½È­
         for(int i = 0 ; i < e; i++){
             st = new StringTokenizer(br.readLine());
             int start = Integer.parseInt(st.nextToken());
             int end = Integer.parseInt(st.nextToken());
             int weight = Integer.parseInt(st.nextToken());
-            // start¿¡¼­ end·Î °¡´Â weight °¡ÁßÄ¡
+            // startï¿½ï¿½ï¿½ï¿½ endï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ weight ï¿½ï¿½ï¿½ï¿½Ä¡
             list[start].add(new Node(end, weight));
         }
 
         StringBuilder sb = new StringBuilder();
-        // ´ÙÀÍ½ºÆ®¶ó ¾Ë°í¸®Áò
+        // ï¿½ï¿½ï¿½Í½ï¿½Æ®ï¿½ï¿½ ï¿½Ë°ï¿½ï¿½ï¿½
         dijkstra(k);
-        // Ãâ·Â ºÎºÐ
+        // ï¿½ï¿½ï¿½ ï¿½Îºï¿½
         for(int i = 1; i <= v; i++){
             if(dist[i] == INF) sb.append("INF\n");
             else sb.append(dist[i] + "\n");

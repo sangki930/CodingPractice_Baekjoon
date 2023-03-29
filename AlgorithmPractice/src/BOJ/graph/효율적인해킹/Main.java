@@ -1,4 +1,4 @@
-package BOJ.graph.È¿À²ÀûÀÎÇØÅ·;
+package BOJ.graph.íš¨ìœ¨ì ì¸í•´í‚¹;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -7,7 +7,7 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Map;
 
-// ½Ã°£ÃÊ°ú
+// ï¿½Ã°ï¿½ï¿½Ê°ï¿½
 public class Main {
 
     public static void main(String[] args) throws IOException{

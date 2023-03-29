@@ -1,4 +1,4 @@
-package BOJ.graph.»ó±ÙÀÌÀÇ_¿©Çà;
+package BOJ.graph.ìƒê·¼ì´ì˜_ì—¬í–‰;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -21,9 +21,9 @@ public class Main {
 			boolean[] v = new boolean[n+1];
 			for(int j=0;j<m;j++) {
 				input = br.readLine().split(" ");
-				int a = Integer.parseInt(input[0]), b = Integer.parseInt(input[1]); // ÀÔ·Â¹Ş±â À§ÇÑ º¯¼ö
+				int a = Integer.parseInt(input[0]), b = Integer.parseInt(input[1]); // ï¿½Ô·Â¹Ş±ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			}
-			System.out.println(n-1); //°á±¹¿¡´Â ÃÖ¼Ò ½ÅÀå Æ®¸®ÀÇ ¼ºÁú¿¡ ÀÇÇØ ³ëµåÀÇ °³¼ö-1°³°¡ ÃÖ¼Ú°ªÀÌ´Ù.
+			System.out.println(n-1); //ï¿½á±¹ï¿½ï¿½ï¿½ï¿½ ï¿½Ö¼ï¿½ ï¿½ï¿½ï¿½ï¿½ Æ®ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½-1ï¿½ï¿½ï¿½ï¿½ ï¿½Ö¼Ú°ï¿½ï¿½Ì´ï¿½.
 		}
 		br.close();
 		

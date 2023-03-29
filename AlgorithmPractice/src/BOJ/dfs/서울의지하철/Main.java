@@ -1,4 +1,4 @@
-package BOJ.dfs.¼­¿ïÀÇÁöÇÏÃ¶;
+package BOJ.dfs.ì„œìš¸ì˜ì§€í•˜ì² ;
 
 import java.io.BufferedReader;
 import java.io.IOException;

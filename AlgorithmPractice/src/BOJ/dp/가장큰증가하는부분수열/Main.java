@@ -1,10 +1,9 @@
-package BOJ.dp.°¡ÀåÅ«Áõ°¡ÇÏ´ÂºÎºĞ¼ö¿­;
+package BOJ.dp.ê°€ì¥í°ì¦ê°€í•˜ëŠ”ë¶€ë¶„ìˆ˜ì—´;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-// ´ÙÀÌ³»¹Í ÇÁ·Î±×·¡¹Ö
 public class Main {
 
 	public static void main(String[] args) throws IOException {

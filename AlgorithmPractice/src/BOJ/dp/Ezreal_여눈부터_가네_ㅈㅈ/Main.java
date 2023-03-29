@@ -1,4 +1,4 @@
-package BOJ.dp.Ezreal_¿©´«ºÎÅÍ_°¡³×_¤¸¤¸;
+package BOJ.dp.Ezreal_ì—¬ëˆˆë¶€í„°_ê°€ë„¤_ã…ˆã…ˆ;
 
 import java.io.BufferedReader;
 import java.io.IOException;

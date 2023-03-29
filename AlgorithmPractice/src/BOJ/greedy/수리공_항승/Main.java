@@ -1,4 +1,4 @@
-package BOJ.greedy.¼ö¸®°ø_Ç×½Â;
+package BOJ.greedy.ìˆ˜ë¦¬ê³µ_í•­ìŠ¹;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -18,8 +18,8 @@ public class Main {
 			arr[i]=Integer.parseInt(input[i]);
 		}
 		Arrays.sort(arr);
-		int start = arr[0], len = 1;//len : ÇöÀç ±æÀÌ
-		int answer = 1; // Á¤´ä
+		int start = arr[0], len = 1;//len : ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+		int answer = 1; // ï¿½ï¿½ï¿½ï¿½
 		
 		for(int i=1;i<arr.length;i++) {
 			if(arr[i]-start>=l) {

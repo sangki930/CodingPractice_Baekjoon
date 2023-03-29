@@ -1,4 +1,4 @@
-package BOJ.graph.floyd_warshall.ÇÃ·ÎÀÌµå;
+package BOJ.graph.floyd_warshall.í”Œë¡œì´ë“œ;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -24,7 +24,7 @@ public class Main {
 			arr[i][j]=Math.min(Integer.parseInt(tmp[2]),arr[i][j]);
 		}
 
-		// ÇÃ·ÎÀÌµå ¿Í¼£ ¾Ë°í¸®Áò
+		// ï¿½Ã·ï¿½ï¿½Ìµï¿½ ï¿½Í¼ï¿½ ï¿½Ë°ï¿½ï¿½ï¿½
 		for(int i=1;i<=n;i++) {
 			for(int j=1;j<=n;j++) {
 				for(int k=1;k<=n;k++) {

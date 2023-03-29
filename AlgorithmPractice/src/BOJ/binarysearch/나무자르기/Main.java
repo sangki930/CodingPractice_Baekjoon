@@ -1,4 +1,4 @@
-package BOJ.binarysearch.³ª¹«ÀÚ¸£±â;
+package BOJ.binarysearch.ë‚˜ë¬´ìë¥´ê¸°;
 
 import java.io.BufferedReader;
 import java.io.IOException;

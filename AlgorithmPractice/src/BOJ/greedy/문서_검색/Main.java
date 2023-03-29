@@ -1,4 +1,4 @@
-package BOJ.greedy.¹®¼­_°Ë»ö;
+package BOJ.greedy.ë¬¸ì„œ_ê²€ìƒ‰;
 
 import java.io.BufferedReader;
 import java.io.IOException;

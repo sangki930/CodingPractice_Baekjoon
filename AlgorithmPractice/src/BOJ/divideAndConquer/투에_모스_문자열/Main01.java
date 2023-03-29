@@ -1,4 +1,4 @@
-package BOJ.divideAndConquer.Åõ¿¡_¸ğ½º_¹®ÀÚ¿­;
+package BOJ.divideAndConquer.íˆ¬ì—_ëª¨ìŠ¤_ë¬¸ìì—´;
 
 import java.io.BufferedReader;
 import java.io.IOException;

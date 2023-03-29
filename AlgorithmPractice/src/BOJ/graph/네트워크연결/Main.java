@@ -1,4 +1,4 @@
-package BOJ.graph.³×Æ®¿öÅ©¿¬°á;
+package BOJ.graph.ë„¤íŠ¸ì›Œí¬ì—°ê²°;
 
 import java.io.BufferedReader;
 import java.io.IOException;

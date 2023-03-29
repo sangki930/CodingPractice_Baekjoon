@@ -1,4 +1,4 @@
-package BOJ.bfs.±¸½½_Å»Ãâ_02;
+package BOJ.bfs.êµ¬ìŠ¬_íƒˆì¶œ_02;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -23,11 +23,11 @@ class Data{
 	
 }
 
-// [13460] ±¸½½Å»Ãâ2 (°ñµå1)
+// [13460] ï¿½ï¿½ï¿½ï¿½Å»ï¿½ï¿½2 (ï¿½ï¿½ï¿½1)
 public class Main {
 
 	static int n,m;
-	static int[] dx = {-1,0,1,0}, dy = {0,-1,0,1}; // »ó,ÁÂ,ÇÏ,¿ì
+	static int[] dx = {-1,0,1,0}, dy = {0,-1,0,1}; // ï¿½ï¿½,ï¿½ï¿½,ï¿½ï¿½,ï¿½ï¿½
 	public static void main(String[] args) throws IOException{
 		// TODO Auto-generated method stub
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -38,7 +38,7 @@ public class Main {
 		char[][] map = new char[n][m];
 		int red_x = -1, red_y = -1;
 		int blue_x = -1, blue_y = -1;
-		boolean[][][] visited = new boolean[2][n][m]; // visited[0] : »¡°£±¸½½, visited[1] : ÆÄ¶õ±¸½½
+		boolean[][][] visited = new boolean[2][n][m]; // visited[0] : ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, visited[1] : ï¿½Ä¶ï¿½ï¿½ï¿½ï¿½ï¿½
 		
 		for(int i=0;i<n;i++) {
 			map[i] = br.readLine().toCharArray();
@@ -63,17 +63,17 @@ public class Main {
 				int new_red_y = data.red_y;
 				int new_blue_y = data.blue_y;
 				switch(i) {
-					case 0: // »ó
-						if(data.blue_x>data.red_x) { // ÆÄ¶õ±¸½½ÀÌ »¡°£±¸½½º¸´Ù ¾Æ·¡
+					case 0: // ï¿½ï¿½
+						if(data.blue_x>data.red_x) { // ï¿½Ä¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Æ·ï¿½
 							
-							// »¡°£±¸½½ ¸ÕÀú ÀÌµ¿
+							// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½
 							while(true) {
 								if(!isInMap(new_red_x-1,new_red_y)) break;
 								if(map[new_red_x][new_red_y]!='#') break;
 								new_red_x--;
 							}
 							
-							// ±× ´ÙÀ½ ÆÄ¶õ±¸½½ ÀÌµ¿
+							// ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ä¶ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½
 							while(true) {
 								if(!isInMap(new_blue_x-1,new_blue_y)) break;
 								if(map[new_blue_x][new_blue_y]!='#') break;
@@ -81,16 +81,16 @@ public class Main {
 								new_blue_x--;
 							}
 							
-						}else if(data.blue_x<data.red_x) { // ÆÄ¶õ±¸½½ÀÌ »¡°£±¸½½º¸´Ù À§
+						}else if(data.blue_x<data.red_x) { // ï¿½Ä¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
 							
-							// ÆÄ¶õ±¸½½ ¸ÕÀúÀÌµ¿
+							// ï¿½Ä¶ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ìµï¿½
 							while(true) {
 								if(!isInMap(new_blue_x-1,new_blue_y)) break;
 								if(map[new_blue_x][new_blue_y]!='#') break;
 								new_blue_x--;
 							}
 							
-							// ±× ´ÙÀ½ »¡°£±¸½½ ¸ÕÀúÀÌµ¿
+							// ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ìµï¿½
 							while(true) {
 								if(!isInMap(new_red_x-1,new_red_y)) break;
 								if(map[new_red_x][new_red_y]!='#') break;
@@ -99,15 +99,15 @@ public class Main {
 							}
 						}else {
 							
-							// º®À» ¹ß°ßÇÒ ¶§±îÁö °è¼Ó ÀÌµ¿
-							// »¡°£±¸½½
+							// ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ìµï¿½
+							// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 							while(true) {
 								if(!isInMap(new_red_x-1,new_red_y)) break;
 								if(map[new_red_x][new_red_y]!='#') break;
 								new_red_x--;
 							}
 							
-							// ÆÄ¶õ±¸½½
+							// ï¿½Ä¶ï¿½ï¿½ï¿½ï¿½ï¿½
 							while(true) {
 								if(!isInMap(new_blue_x-1,new_blue_y)) break;
 								if(map[new_blue_x][new_blue_y]!='#') break;

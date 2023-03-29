@@ -1,4 +1,4 @@
-package BOJ.graph.floyd_warshall.ÄÉºóº£ÀÌÄÁÀÇ6´Ü°è¹ıÄ¢;
+package BOJ.graph.floyd_warshall.ì¼€ë¹ˆë² ì´ì»¨ì˜6ë‹¨ê³„ë²•ì¹™;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -15,7 +15,7 @@ public class Main {
         int m = Integer.parseInt(tmp[1]);
         int[][] arr = new int[n + 1][n + 1];
  
-        // ÃÊ±â°ª ¼³Á¤
+        // ï¿½Ê±â°ª ï¿½ï¿½ï¿½ï¿½
         for (int i = 1; i <= n; i++) {
             for (int j = 1; j <= n; j++) {
                 arr[i][j] = INF;

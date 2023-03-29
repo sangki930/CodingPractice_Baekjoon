@@ -1,4 +1,4 @@
-package BOJ.dp.Á¤¼ö¸¦³¡±îÁö¿ÜÄ¡ÀÚ;
+package BOJ.dp.ì •ìˆ˜ë¥¼ëê¹Œì§€ì™¸ì¹˜ì;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -25,7 +25,7 @@ class Data{
 	
 }
 
-// ¹Ì¿Ï
+// ï¿½Ì¿ï¿½
 public class Main {
 
 	static boolean[] isBanned;

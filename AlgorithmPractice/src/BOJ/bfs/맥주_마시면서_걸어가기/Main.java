@@ -1,4 +1,4 @@
-package BOJ.bfs.¸ÆÁÖ_¸¶½Ã¸é¼­_°É¾î°¡±â;
+package BOJ.bfs.ë§¥ì£¼_ë§ˆì‹œë©´ì„œ_ê±¸ì–´ê°€ê¸°;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -15,7 +15,6 @@ class Point{
 	
 }
 
-// ÇÃ·ÎÀÌµå-¿Í¼£ ¾Ë°í¸®Áò
 public class Main {
 
 	public static void main(String[] args) throws IOException {
@@ -39,7 +38,7 @@ public class Main {
 				for(int k=0;k<=n+1;k++) {
 					Point p1 = list.get(j), p2 = list.get(k);
 					dist[j][k] = Math.abs(p1.x-p2.x)+Math.abs(p1.y-p2.y);
-					if(dist[j][k]<=50*20) { // ¸ÆÁÖ ¸¶½Ã¸é¼­ °¥ ¼ö ÀÖ´Â Áö
+					if(dist[j][k]<=50*20) { // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ã¸é¼­ ï¿½ï¿½ ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½
 						v[j][k]=true;
 					}
 				}

@@ -1,4 +1,4 @@
-package BOJ.graph.topologySort.ÁÙ¼¼¿ì±â;
+package BOJ.graph.topologySort.ì¤„ì„¸ìš°ê¸°;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -14,7 +14,7 @@ public class Main {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		String[] input = br.readLine().split(" ");
 		int n = Integer.parseInt(input[0]), m = Integer.parseInt(input[1]);
-		int[] degrees = new int[n+1]; // °¢ ÇÐ»ýµéÀÇ Â÷¼ö¸¦ ÀúÀå
+		int[] degrees = new int[n+1]; // ï¿½ï¿½ ï¿½Ð»ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		Map<Integer,LinkedList<Integer>> graph = new HashMap<>();
 		for(int i=0;i<m;i++) {
 			input = br.readLine().split(" ");
@@ -26,7 +26,7 @@ public class Main {
 		}
 		
 		LinkedList<Integer> queue = new LinkedList<>();
-		StringBuilder sb = new StringBuilder(); //°á±£°ª
+		StringBuilder sb = new StringBuilder(); //ï¿½á±£ï¿½ï¿½
 		for(int i=1;i<=n;i++) {
 			if(degrees[i]==0)
 				queue.offer(i);

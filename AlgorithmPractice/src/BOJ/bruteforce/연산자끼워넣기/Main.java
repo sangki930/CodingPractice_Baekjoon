@@ -1,4 +1,4 @@
-package BOJ.bruteforce.¿¬»êÀÚ³¢¿ö³Ö±â;
+package BOJ.bruteforce.ì—°ì‚°ìë¼ì›Œë„£ê¸°;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -7,11 +7,11 @@ import java.util.StringTokenizer;
  
 public class Main {
  
-	public static int MAX = Integer.MIN_VALUE;	// ÃÖ´ñ°ª 
-	public static int MIN = Integer.MAX_VALUE;	// ÃÖ¼Ú°ª 
-	public static int[] operator = new int[4];	// ¿¬»êÀÚ °³¼ö 
-	public static int[] number;					// ¼ıÀÚ 
-	public static int N;						// ¼ıÀÚ °³¼ö 
+	public static int MAX = Integer.MIN_VALUE;	// ï¿½Ö´ï¿½ 
+	public static int MIN = Integer.MAX_VALUE;	// ï¿½Ö¼Ú°ï¿½ 
+	public static int[] operator = new int[4];	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ 
+	public static int[] number;					// ï¿½ï¿½ï¿½ï¿½ 
+	public static int N;						// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ 
  
 	public static void main(String[] args) throws IOException {
  
@@ -20,13 +20,13 @@ public class Main {
 		N = Integer.parseInt(br.readLine());
 		number = new int[N];
  
-		// ¼ıÀÚ ÀÔ·Â 
+		// ï¿½ï¿½ï¿½ï¿½ ï¿½Ô·ï¿½ 
 		StringTokenizer st = new StringTokenizer(br.readLine(), " ");
 		for (int i = 0; i < N; i++) {
 			number[i] = Integer.parseInt(st.nextToken());
 		}
  
-		// ¿¬»êÀÚ ÀÔ·Â 
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ô·ï¿½ 
 		st = new StringTokenizer(br.readLine(), " ");
 		for (int i = 0; i < 4; i++) {
 			operator[i] = Integer.parseInt(st.nextToken());
@@ -47,10 +47,10 @@ public class Main {
 		}
  
 		for (int i = 0; i < 4; i++) {
-			// ¿¬»êÀÚ °³¼ö°¡ 1°³ ÀÌ»óÀÎ °æ¿ì
+			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 1ï¿½ï¿½ ï¿½Ì»ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 			if (operator[i] > 0) {
  
-				// ÇØ´ç ¿¬»êÀÚ¸¦ 1 °¨¼Ò½ÃÅ²´Ù.
+				// ï¿½Ø´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ú¸ï¿½ 1 ï¿½ï¿½ï¿½Ò½ï¿½Å²ï¿½ï¿½.
 				operator[i]--;
  
 				switch (i) {
@@ -61,7 +61,7 @@ public class Main {
 				case 3->dfs(num / number[idx], idx + 1);
  
 				}
-				// Àç±ÍÈ£ÃâÀÌ Á¾·áµÇ¸é ´Ù½Ã ÇØ´ç ¿¬»êÀÚ °³¼ö¸¦ º¹±¸ÇÑ´Ù.
+				// ï¿½ï¿½ï¿½È£ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ç¸ï¿½ ï¿½Ù½ï¿½ ï¿½Ø´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
 				operator[i]++;
 			}
 		}

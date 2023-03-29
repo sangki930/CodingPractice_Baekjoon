@@ -1,4 +1,4 @@
-package BOJ.dp.RGB°Å¸®;
+package BOJ.dp.RGBê±°ë¦¬;
 
 import java.io.BufferedReader;
 import java.io.IOException;

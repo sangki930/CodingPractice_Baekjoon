@@ -1,4 +1,4 @@
-package BOJ.dp.��ƼĿ;
+package BOJ.dp.스티커;
 
 import java.io.BufferedReader;
 import java.io.IOException;

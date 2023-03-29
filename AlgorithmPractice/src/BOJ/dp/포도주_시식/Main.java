@@ -1,4 +1,4 @@
-package BOJ.dp.Æ÷µµÁÖ_½Ã½Ä;
+package BOJ.dp.í¬ë„ì£¼_ì‹œì‹;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -21,7 +21,7 @@ public class Main {
         for(int i=3;i<arr.length;i++) {
         	dp[i] = Math.max(dp[i-3] + arr[i] + arr[i-1], dp[i-2] + arr[i]); 
         	dp[i] = Math.max(dp[i-1], dp[i]);
-        	//¿ÍÀÎÀ» 2¹ø¿¬¼ÓÀ¸·Î ¾È¸¶½Ã´Â °æ¿ìµµ Á¸Àç
+        	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 2ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½È¸ï¿½ï¿½Ã´ï¿½ ï¿½ï¿½ìµµ ï¿½ï¿½ï¿½ï¿½
         }
         System.out.println(dp[n-1]);
         br.close();

@@ -1,4 +1,4 @@
-package BOJ.bruteforce.¼¿ÇÁ_³Ñ¹ö;
+package BOJ.bruteforce.ì…€í”„_ë„˜ë²„;
 
 import java.util.*;
 

@@ -1,4 +1,4 @@
-package BOJ.dp.¼³ÅÁ¹è´Þ;
+package BOJ.dp.ì„¤íƒ•ë°°ë‹¬;
 
 import java.util.*;
 public class Main{

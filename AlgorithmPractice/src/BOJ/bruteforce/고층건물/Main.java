@@ -1,4 +1,4 @@
-package BOJ.bruteforce.°íÃþ°Ç¹°;
+package BOJ.bruteforce.ê³ ì¸µê±´ë¬¼;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -19,7 +19,7 @@ public class Main {
 			int total = 0;
 			int cnt = 0;
 			double prev = 0;
-			// ±âÁØÁ¡ÀÇ ¿ÞÂÊ
+			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			for(int j=i-1;j>=0;j--) {
 				double slope = (buildings[i]-buildings[j])/(double)(i-j);
 				if(j==i-1 || prev > slope) {
@@ -30,7 +30,7 @@ public class Main {
 			total+=cnt;
 			cnt = 0;
 			prev = 0;
-			// ±âÁØÁ¡ÀÇ ¿À¸¥ÂÊ
+			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			for(int j=i+1;j<n;j++) {
 				double slope = (buildings[i]-buildings[j])/(double)(i-j);
 				if(j==i+1 || prev < slope) {

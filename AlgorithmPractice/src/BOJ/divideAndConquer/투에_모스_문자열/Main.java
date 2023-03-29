@@ -1,4 +1,4 @@
-package BOJ.divideAndConquer.Åõ¿¡_¸ğ½º_¹®ÀÚ¿­;
+package BOJ.divideAndConquer.íˆ¬ì—_ëª¨ìŠ¤_ë¬¸ìì—´;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -20,7 +20,7 @@ public class Main {
 		if(k<=8) {
 			return "01101001".charAt((int)k-1)-'0';
 		}
-		int cnt=0; //ÂÉ°µÈ½¼ö
+		int cnt=0; //ï¿½É°ï¿½È½ï¿½ï¿½
 		long v=k;
 		int ret=-1;
 		while(true) {

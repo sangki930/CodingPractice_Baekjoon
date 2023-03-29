@@ -1,11 +1,11 @@
-package BOJ.dp.Àü±êÁÙ;
+package BOJ.dp.ì „ê¹ƒì¤„;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Arrays;
 
-// ÃâÃ³ : https://st-lab.tistory.com/138
+// ï¿½ï¿½Ã³ : https://st-lab.tistory.com/138
 public class Main {
 
 	public static void main(String[] args) throws IOException {
@@ -21,8 +21,7 @@ public class Main {
 			wire[i][0] = Integer.parseInt(input[0]);
 			wire[i][1] = Integer.parseInt(input[1]);
 		}
-		
-		// AÀüº¿´ë¸¦ ±âÁØÀ¸·Î Á¤·Ä
+
 		Arrays.sort(wire,(a,b)->a[0]-b[0]);
 		
 		for(int i=0;i<dp.length;i++) {
@@ -37,8 +36,7 @@ public class Main {
 		for(int i = 0; i < n; i++) {
 			max = Math.max(max, dp[i]);
 		}
-		
-		// ÀüÃ¼ °³¼ö - ¼³Ä¡ °¡´ÉÇÑ Àü±êÁÙ = ÃÖ¼Ò Ã¶°Å °³¼ö 
+
 		System.out.println(n - max);
 		
         br.close();

@@ -1,4 +1,4 @@
-package BOJ.bfs.Åä¸¶Åä_another;
+package BOJ.bfs.í† ë§ˆí† _another;
 
 import java.util.LinkedList;
 import java.util.Queue;

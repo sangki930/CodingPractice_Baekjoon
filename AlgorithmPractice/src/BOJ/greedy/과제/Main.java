@@ -1,4 +1,4 @@
-package BOJ.greedy.°úÁ¦;
+package BOJ.greedy.ê³¼ì œ;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -46,7 +46,7 @@ public class Main {
 				}
 		);
 		
-		for(int i=0;i<list.size();) { // cnt : °úÁ¦ °³¼ö
+		for(int i=0;i<list.size();) { // cnt : ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			int day = list.get(i).d;
 			while(i<list.size() && list.get(i).d==day) {
 				if(pq.size()<day) {

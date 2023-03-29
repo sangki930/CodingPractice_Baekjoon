@@ -1,4 +1,4 @@
-package BOJ.graph.ÃÖ¼Ò½ºÆĞ´×Æ®¸®;
+package BOJ.graph.ìµœì†ŒìŠ¤íŒ¨ë‹íŠ¸ë¦¬;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;

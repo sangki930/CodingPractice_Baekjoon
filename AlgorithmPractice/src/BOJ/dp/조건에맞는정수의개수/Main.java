@@ -1,10 +1,10 @@
-package BOJ.dp.Á¶°Ç¿¡¸Â´ÂÁ¤¼öÀÇ°³¼ö;
+package BOJ.dp.ì¡°ê±´ì—ë§ëŠ”ì •ìˆ˜ì˜ê°œìˆ˜;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
  
-// Á¶°Ç¿¡ ¸Â´Â Á¤¼öÀÇ °³¼ö-½Ç¹ö1
+// ï¿½ï¿½ï¿½Ç¿ï¿½ ï¿½Â´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½-ï¿½Ç¹ï¿½1
 public class Main {
  
 	static int[] arr = {-2,-1,0,1,2};

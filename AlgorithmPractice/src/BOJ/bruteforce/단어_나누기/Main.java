@@ -1,4 +1,4 @@
-package BOJ.bruteforce.´Ü¾î_³ª´©±â;
+package BOJ.bruteforce.ë‹¨ì–´ë‚˜ëˆ„ê¸°;
 
 import java.io.BufferedReader;
 import java.io.IOException;

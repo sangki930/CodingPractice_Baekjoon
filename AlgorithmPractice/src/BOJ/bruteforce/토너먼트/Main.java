@@ -1,4 +1,4 @@
-package BOJ.bruteforce.��ʸ�Ʈ;
+package BOJ.bruteforce.토너먼트;
 
 import java.io.BufferedReader;
 import java.io.IOException;

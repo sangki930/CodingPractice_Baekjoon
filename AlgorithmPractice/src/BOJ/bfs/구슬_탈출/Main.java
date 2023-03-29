@@ -1,4 +1,4 @@
-package BOJ.bfs.±¸½½_Å»Ãâ;
+package BOJ.bfs.êµ¬ìŠ¬_íƒˆì¶œ;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -8,7 +8,7 @@ class State{
 	
 }
 
-//[13459] ±¸½½Å»Ãâ (°ñµå2)
+//[13459] êµ¬ìŠ¬ íƒˆì¶œ (Gold2)
 public class Main {
 
 	static int[] dx = {-1,0,1,0}, dy = {0,-1,0,1};

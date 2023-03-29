@@ -1,4 +1,4 @@
-package BOJ.dp.ÇÇº¸³ªÄ¡ÇÔ¼ö;
+package BOJ.dp.í”¼ë³´ë‚˜ì¹˜í•¨ìˆ˜;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -11,8 +11,8 @@ public class Main {
 		BufferedReader br =  new BufferedReader(new InputStreamReader(System.in));
 		int n = Integer.parseInt(br.readLine());
 		int arr[][]=new int[41][2];
-		arr[0][0] =1;//0ÀÇ °³¼ö 1
-		arr[1][1] =1;//1ÀÇ °³¼ö 1
+		arr[0][0] =1;//0ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ 1
+		arr[1][1] =1;//1ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ 1
 		for(int i=2;i<arr.length;i++) {
 			for(int j=0;j<2;j++) {
 				arr[i][j]=arr[i-1][j]+arr[i-2][j];

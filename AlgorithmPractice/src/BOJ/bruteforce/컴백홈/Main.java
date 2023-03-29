@@ -1,4 +1,4 @@
-package BOJ.bruteforce.�Ĺ�Ȩ;
+package BOJ.bruteforce.컴백홈;
 
 import java.io.BufferedReader;
 import java.io.IOException;

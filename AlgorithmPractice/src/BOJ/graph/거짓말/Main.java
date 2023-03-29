@@ -1,4 +1,4 @@
-package BOJ.graph.°ÅÁş¸»;
+package BOJ.graph.ê±°ì§“ë§;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -23,7 +23,7 @@ public class Main {
 				.mapToInt(Integer::parseInt)
 				.boxed()
 				.collect(Collectors.toList());
-		acquired.remove(0); // ºÒÇÊ¿äÇÑ ºÎºĞ Á¦°Å
+		acquired.remove(0); // ï¿½ï¿½ï¿½Ê¿ï¿½ï¿½ï¿½ ï¿½Îºï¿½ ï¿½ï¿½ï¿½ï¿½
 		for(int i=0;i<m;i++) {
 			input = br.readLine().split(" ");
 			int cnt = Integer.parseInt(input[0]);

@@ -1,4 +1,4 @@
-package BOJ.bitmasking.Áßº¹_Á¦°Å;
+package BOJ.bitmasking.ì¤‘ë³µ_ì œê±°;
 
 import java.io.BufferedReader;
 import java.io.IOException;

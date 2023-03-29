@@ -1,4 +1,4 @@
-package BOJ.bfs.¿¬±¸¼Ò_02;
+package BOJ.bfs.ì—°êµ¬ì†Œ_02;
 
 import java.io.BufferedReader;
 import java.io.IOException;

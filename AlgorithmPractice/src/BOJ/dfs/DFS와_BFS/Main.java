@@ -1,4 +1,4 @@
-package BOJ.dfs.DFS¿Í_BFS;
+package BOJ.dfs.DFSì™€_BFS;
 
 import java.util.*;
 
@@ -26,11 +26,11 @@ public class Main{
 		Queue<Integer> queue = new LinkedList<Integer>();
 		queue.offer(i);
 		visit[i] = true;
-		//¹æ¹®Çß´Ù´Â °ÍÀ» Ç¥½Ã
+		//ï¿½æ¹®ï¿½ß´Ù´ï¿½ ï¿½ï¿½ï¿½ï¿½ Ç¥ï¿½ï¿½
 		while(!queue.isEmpty()) {
 			
 			int temp = queue.poll();
-			//Ã¹ ¹øÂ° ¹æ¹®ÇÑ À§Ä¡´Â »©ÁÖ±â·Î ÇÑ´Ù.
+			//Ã¹ ï¿½ï¿½Â° ï¿½æ¹®ï¿½ï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½ï¿½ï¿½Ö±ï¿½ï¿½ ï¿½Ñ´ï¿½.
 			System.out.print(temp + " ");
 			
 			for(int k=1;k<=n;k++) {
@@ -58,7 +58,7 @@ public class Main{
 			Arrays.fill(map[j], 0);
 			arrayList.add(new TreeMap<Integer,Integer>());
 		}
-		Arrays.fill(visit, false);//¹æ¹®³ëµå¸¦ false·Î Ã¤¿ò
+		Arrays.fill(visit, false);//ï¿½æ¹®ï¿½ï¿½å¸¦ falseï¿½ï¿½ Ã¤ï¿½ï¿½
 		
 		for(int i=0;i<m;i++) {
 			String edge = sc.nextLine(); 

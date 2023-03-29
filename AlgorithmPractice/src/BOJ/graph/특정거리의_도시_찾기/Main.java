@@ -1,4 +1,4 @@
-package BOJ.graph.Æ¯Á¤°Å¸®ÀÇ_µµ½Ã_Ã£±â;
+package BOJ.graph.íŠ¹ì •ê±°ë¦¬ì˜_ë„ì‹œ_ì°¾ê¸°;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -15,10 +15,10 @@ public class Main {
 //		Scanner sc = new Scanner(System.in);
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         String input[] = br.readLine().split(" ");
-        int N = Integer.valueOf(input[0]);//µµ½ÃÀÇ °³¼ö
-        int M = Integer.valueOf(input[1]);//µµ·ÎÀÇ °³¼ö
-        int K = Integer.valueOf(input[2]);//ÃÖ´Ü°Å¸®
-        int X = Integer.valueOf(input[3]);//Ãâ¹ßµµ½Ã
+        int N = Integer.valueOf(input[0]);//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+        int M = Integer.valueOf(input[1]);//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+        int K = Integer.valueOf(input[2]);//ï¿½Ö´Ü°Å¸ï¿½
+        int X = Integer.valueOf(input[3]);//ï¿½ï¿½ßµï¿½ï¿½ï¿½
         
         Map<Integer,LinkedList<Integer>> graph = new TreeMap<>();
         

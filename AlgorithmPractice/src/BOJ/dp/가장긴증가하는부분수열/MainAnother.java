@@ -1,11 +1,11 @@
-package BOJ.dp.°¡Àå±äÁõ°¡ÇÏ´ÂºÎºĞ¼ö¿­;
+package BOJ.dp.ê°€ì¥ê¸´ì¦ê°€í•˜ëŠ”ë¶€ë¶„ìˆ˜ì—´;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 
-// ÀÌºĞÅ½»ö
+// ï¿½Ìºï¿½Å½ï¿½ï¿½
 public class MainAnother {
 
 	public static void main(String[] args) throws IOException{

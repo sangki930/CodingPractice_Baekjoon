@@ -1,4 +1,4 @@
-package BOJ.bruteforce.°¡¸£Ä§;
+package BOJ.bruteforce.ê°€ë¥´ì¹¨;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -47,7 +47,7 @@ public class Main {
     public static void backtracking(int alpha, int len) {
         if(len == k - 5) {
             int count = 0;
-            for(int i = 0; i < n; i++) { //»ÌÀº ¾ËÆÄºªÀ¸·Î ¸î°³ÀÇ ´Ü¾î¸¦ ÀÐÀ» ¼ö ÀÖ´ÂÁö Ä«¿îÆ®.
+            for(int i = 0; i < n; i++) { //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Äºï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½î°³ï¿½ï¿½ ï¿½Ü¾î¸¦ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ö´ï¿½ï¿½ï¿½ Ä«ï¿½ï¿½Æ®.
                 boolean read = true;
                 for(int j = 0; j < word[i].length(); j++) {
                     if(!visited[word[i].charAt(j) - 'a']) {

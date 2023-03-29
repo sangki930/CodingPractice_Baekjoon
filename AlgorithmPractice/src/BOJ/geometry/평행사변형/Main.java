@@ -1,4 +1,4 @@
-package BOJ.geometry.ÆòÇà»çº¯Çü;
+package BOJ.geometry.í‰í–‰ì‚¬ë³€í˜•;
 
 import java.util.Scanner;
 

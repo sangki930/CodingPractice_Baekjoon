@@ -1,4 +1,4 @@
-package BOJ.bruteforce.ÁÁÀº±¸°£;
+package BOJ.bruteforce.ì¢‹ì€êµ¬ê°„;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
