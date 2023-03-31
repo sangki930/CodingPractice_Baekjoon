@@ -1,95 +1,95 @@
-package BOJ.backtracking.ìŠ¤ë„ì¿ ;
+package BOJ.backtracking.½ºµµÄí;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-// 2580 ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+// 2580 ½ºµµÄí
 public class Main {
 
-	static int[][] arr;
-	public static void main(String[] args) throws IOException{
-		// TODO Auto-generated method stub
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		arr= new int[9][9];
-		
-		for(int i=0;i<9;i++) {
-			String[] input = br.readLine().split(" ");
-			for(int j=0;j<9;j++) {
-				arr[i][j] = Integer.parseInt(input[j]);
-			}
-		}
-		sudoku(0,0);
-		br.close();
-	}
-	
-	public static void sudoku(int row, int col) {
-		 
-		// ï¿½Ø´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ Ã¤ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã¹ ï¿½ï¿½Â° ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
-		if (col == 9) {
-			sudoku(row + 1, 0);
-			return;
-		}
- 
-		// ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ Ã¤ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
-		if (row == 9) {
-			for (int i = 0; i < 9; i++) {
-				for (int j = 0; j < 9; j++) {
-					System.out.print(arr[i][j] + " ");
-				}
-				System.out.println();
-			}
- 
-			// ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
-			System.exit(0);
-		}
- 
-		// ï¿½ï¿½ï¿½ï¿½ ï¿½Ø´ï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ 0 ï¿½Ì¶ï¿½ï¿½ 1ï¿½ï¿½ï¿½ï¿½ 9ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ Å½ï¿½ï¿½
-		if (arr[row][col] == 0) {
-			for (int i = 1; i <= 9; i++) {
-				// i ï¿½ï¿½ï¿½ï¿½ ï¿½ßºï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê´ï¿½ï¿½ï¿½ ï¿½Ë»ï¿½
-				if (possibility(row, col, i)) {
-					arr[row][col] = i;
-					sudoku(row, col + 1);
-				}
-			}
-			arr[row][col] = 0;
-			return;
-		}
- 
-		sudoku(row, col + 1);
- 
-	}
- 
-	public static boolean possibility(int row, int col, int value) {
- 
-		// ï¿½ï¿½ï¿½ï¿½ ï¿½à¿¡ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½Òµï¿½ ï¿½ï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½Ò°ï¿½ ï¿½Ö´ï¿½ï¿½ï¿½ ï¿½Ë»ï¿½
-		for (int i = 0; i < 9; i++) {
-			if (arr[row][i] == value) {
-				return false;
-			}
-		}
- 
-		// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½Òµï¿½ ï¿½ï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½Ò°ï¿½ ï¿½Ö´ï¿½ï¿½ï¿½ ï¿½Ë»ï¿½
-		for (int i = 0; i < 9; i++) {
-			if (arr[i][col] == value) {
-				return false;
-			}
-		}
- 
-		// 3*3 Ä­ï¿½ï¿½ ï¿½ßºï¿½ï¿½Ç´ï¿½ ï¿½ï¿½ï¿½Ò°ï¿½ ï¿½Ö´ï¿½ï¿½ï¿½ ï¿½Ë»ï¿½
-		int set_row = (row / 3) * 3; // valueï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ 3x3ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã¹ ï¿½ï¿½Ä¡
-		int set_col = (col / 3) * 3; // valueï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ 3x3ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã¹ ï¿½ï¿½Ä¡
- 
-		for (int i = set_row; i < set_row + 3; i++) {
-			for (int j = set_col; j < set_col + 3; j++) {
-				if (arr[i][j] == value) {
-					return false;
-				}
-			}
-		}
- 
-		return true; // ï¿½ßºï¿½ï¿½Ç´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ true ï¿½ï¿½È¯
-	}
-	
+    static int[][] arr;
+    public static void main(String[] args) throws IOException{
+        // TODO Auto-generated method stub
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        arr= new int[9][9];
+
+        for(int i=0;i<9;i++) {
+            String[] input = br.readLine().split(" ");
+            for(int j=0;j<9;j++) {
+                arr[i][j] = Integer.parseInt(input[j]);
+            }
+        }
+        sudoku(0,0);
+        br.close();
+    }
+
+    public static void sudoku(int row, int col) {
+
+        // ÇØ´ç ÇàÀÌ ´Ù Ã¤¿öÁ³À» °æ¿ì ´ÙÀ½ ÇàÀÇ Ã¹ ¹øÂ° ¿­ºÎÅÍ ½ÃÀÛ
+        if (col == 9) {
+            sudoku(row + 1, 0);
+            return;
+        }
+
+        // Çà°ú ¿­ÀÌ ¸ğµÎ Ã¤¿öÁ³À» °æ¿ì Ãâ·Â ÈÄ Á¾·á
+        if (row == 9) {
+            for (int i = 0; i < 9; i++) {
+                for (int j = 0; j < 9; j++) {
+                    System.out.print(arr[i][j] + " ");
+                }
+                System.out.println();
+            }
+
+            // Ãâ·Â µÚ ½Ã½ºÅÛÀ» Á¾·áÇÑ´Ù.
+            System.exit(0);
+        }
+
+        // ¸¸¾à ÇØ´ç À§Ä¡ÀÇ °ªÀÌ 0 ÀÌ¶ó¸é 1ºÎÅÍ 9±îÁö Áß °¡´ÉÇÑ ¼ö Å½»ö
+        if (arr[row][col] == 0) {
+            for (int i = 1; i <= 9; i++) {
+                // i °ªÀÌ Áßº¹µÇÁö ¾Ê´ÂÁö °Ë»ç
+                if (possibility(row, col, i)) {
+                    arr[row][col] = i;
+                    sudoku(row, col + 1);
+                }
+            }
+            arr[row][col] = 0;
+            return;
+        }
+
+        sudoku(row, col + 1);
+
+    }
+
+    public static boolean possibility(int row, int col, int value) {
+
+        // °°Àº Çà¿¡ ÀÖ´Â ¿ø¼Òµé Áß °ãÄ¡´Â ¿­ ¿ø¼Ò°¡ ÀÖ´ÂÁö °Ë»ç
+        for (int i = 0; i < 9; i++) {
+            if (arr[row][i] == value) {
+                return false;
+            }
+        }
+
+        // °°Àº ¿­¿¡ ÀÖ´Â ¿ø¼Òµé Áß °ãÄ¡´Â Çà ¿ø¼Ò°¡ ÀÖ´ÂÁö °Ë»ç
+        for (int i = 0; i < 9; i++) {
+            if (arr[i][col] == value) {
+                return false;
+            }
+        }
+
+        // 3*3 Ä­¿¡ Áßº¹µÇ´Â ¿ø¼Ò°¡ ÀÖ´ÂÁö °Ë»ç
+        int set_row = (row / 3) * 3; // value°¡ ¼ÓÇÑ 3x3ÀÇ ÇàÀÇ Ã¹ À§Ä¡
+        int set_col = (col / 3) * 3; // value°¡ ¼ÓÇÑ 3x3ÀÇ ¿­ÀÇ Ã¹ À§Ä¡
+
+        for (int i = set_row; i < set_row + 3; i++) {
+            for (int j = set_col; j < set_col + 3; j++) {
+                if (arr[i][j] == value) {
+                    return false;
+                }
+            }
+        }
+
+        return true; // Áßº¹µÇ´Â °ÍÀÌ ¾øÀ» °æ¿ì true ¹İÈ¯
+    }
+
 }
