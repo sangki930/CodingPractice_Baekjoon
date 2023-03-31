@@ -1,4 +1,4 @@
-package BOJ.backtracking.ìŠ¤íƒ€íŠ¸ì™€ë§í¬;
+package BOJ.backtracking.½ºÅ¸Æ®¿Í¸µÅ©;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -6,76 +6,78 @@ import java.io.InputStreamReader;
 
 public class Main {
 
-	public static void main(String[] args) throws NumberFormatException, IOException {
-		// TODO Auto-generated method stub
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		int n = Integer.parseInt(br.readLine());
-		int arr[][] = new int[n][n];
+    public static void main(String[] args) throws NumberFormatException, IOException {
+        // TODO Auto-generated method stub
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        int n = Integer.parseInt(br.readLine());
+        int arr[][]=new int[n][n];
 
-		int[] start = new int[n];
-		int[] link = new int[n];
-		int min = Integer.MAX_VALUE;
+        int[] start = new int[n];
+        int[] link = new int[n];
+        int min = Integer.MAX_VALUE;
 
-		for (int i = 0; i < n; i++) {
-			String[] tmp = br.readLine().split(" ");
-			for (int j = 0; j < n; j++) {
-				arr[i][j] = Integer.parseInt(tmp[j]);
-			}
-		}
+        for(int i=0;i<n;i++) {
+            String[] tmp = br.readLine().split(" ");
+            for(int j=0;j<n;j++) {
+                arr[i][j] = Integer.parseInt(tmp[j]);
+            }
+        }
 
-		for (int i = 1; i < 1 << n; i++) {
-			int[] value = new int[n];
-			int count = 0;
+        for (int i = 1; i < 1 << n; i++) {
+            int[] value = new int[n];
+            int count = 0;
 
-			int bit = i;
-			for (int j = 0; bit != 0; j++, bit >>= 1) {
-				if ((1 & bit) == 0) {
-					continue;
-				}
-				value[j] = 1;
-			}
+            int bit = i;
+            for (int j = 0; bit != 0; j++, bit >>= 1) {
+                if ((1 & bit) == 0) {
+                    continue;
+                }
+                value[j] = 1;
+            }
 
-			for (int k = 0; k < n; k++) {
-				if (value[k] == 1) {
-					count++;
-				}
-			}
+            for (int k = 0; k < n; k++) {
+                if (value[k] == 1) {
+                    count++;
+                }
+            }
 
-			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ï±ï¿½
+            //¿©±â±îÁö°¡ °æ¿ìÀÇ ¼ö ±¸ÇÏ±â
 
-			// ï¿½ï¿½ï¿½ï¿½ ï¿½Î¿ï¿½ï¿½ï¿½ ï¿½ï¿½È®ï¿½ï¿½ 2ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ ï¿½Ö´ï¿½.
-			if (count != n / 2)
-				continue;
+            //ÆÀÀÇ ÀÎ¿øÀÌ Á¤È®È÷ 2·Î ³ª´©¾îÁ³À» ¶§ ¸¸ ´ÙÀ½°úÁ¤À» ½ÇÇà ÇÒ ¼ö ÀÖ´Ù.
+            if (count != n / 2)
+                continue;
 
-			int start_sum = 0;
-			int link_sum = 0;
-			int start_cnt = 0;
-			int link_cnt = 0;
-			// value[] ï¿½ï¿½ï¿½ï¿½ 1ï¿½Ì¸ï¿½ ï¿½ï¿½Å¸Æ®ï¿½ï¿½, 0ï¿½Ì¸ï¿½ link ï¿½ï¿½ï¿½ï¿½ ï¿½È´ï¿½.
-			for (int k = 0; k < n; k++) {
-				if (value[k] == 1) {
-					// start_cntï¿½ï¿½ 0ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å¸Æ® ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ã¶ï¿½ï¿½ï¿½ï¿½ï¿½ 1ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
-					start[start_cnt++] = k;
-				} else {
-					// link_cntï¿½ï¿½ 0ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å¸Æ® ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ã¶ï¿½ï¿½ï¿½ï¿½ï¿½ 1ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
-					link[link_cnt++] = k;
-				}
-			}
+            int start_sum = 0;
+            int link_sum = 0;
+            int start_cnt = 0;
+            int link_cnt = 0;
+            //value[] °ªÀÌ 1ÀÌ¸é ½ºÅ¸Æ®ÆÀ, 0ÀÌ¸é link ÆÀÀÌ µÈ´Ù.
+            for (int k = 0; k < n; k++) {
+                if (value[k] == 1) {
+                    //start_cnt´Â 0ºÎÅÍ ½ºÅ¸Æ® ÆÀ¿¡ »ç¶÷ÀÌ µé¾î¿Ã¶§¸¶´Ù 1¾¿ Áõ°¡ÇÑ´Ù.
+                    start[start_cnt++] = k;
+                } else {
+                    //link_cnt´Â 0ºÎÅÍ ½ºÅ¸Æ® ÆÀ¿¡ »ç¶÷ÀÌ µé¾î¿Ã¶§¸¶´Ù 1¾¿ Áõ°¡ÇÑ´Ù.
+                    link[link_cnt++] = k;
+                }
+            }
 
-			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½Ñ´ï¿½.
-			// (1,1) (2,2) ï¿½ï¿½ï¿½ï¿½ ï¿½ß»ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ 0ï¿½Ì¹Ç·ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê¾Ò´ï¿½.
-			for (int x = 0; x < n / 2; x++) {
-				for (int y = 0; y < n / 2; y++) {
-					start_sum += arr[start[x]][start[y]];
-					link_sum += arr[link[x]][link[y]];
-				}
-			}
-			// ï¿½Ö¼Ú°ï¿½ ï¿½ï¿½ï¿½ï¿½
-			min = Math.min(Math.abs(start_sum - link_sum), min);
+            //µÎÆÀÀÌ °¡Áú ¼ö ÀÖ´Â Á¡¼ö¸¦ ´Ù ±¸ÇÑ´Ù.
+            //(1,1) (2,2) µîÀÌ ¹ß»ıÇÒ ¶§ °ªÀº 0ÀÌ¹Ç·Î µû·Î Á¶°ÇÀ» ¸¸µéÁö ¾Ê¾Ò´Ù.
+            for(int x=0; x<n/2; x++){
+                for(int y=0; y<n/2; y++){
+                    start_sum += arr[start[x]][start[y]];
+                    link_sum += arr[link[x]][link[y]];
+                }
+            }
+            //ÃÖ¼Ò°ª ±¸ÇÔ
+            min = Math.min(Math.abs(start_sum- link_sum),min);
 
-		}
 
-		System.out.println(min);
-	}
+        }
+
+        System.out.println(min);
+    }
 
 }
+
