@@ -1,121 +1,120 @@
-package BOJ.bfs.ì—°êµ¬ì†Œ;
+package BOJ.bfs.¿¬±¸¼Ò;
+
+import java.util.*;
 
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Scanner;
 
-class Dot {
-	int x;
-	int y;
-
-	public Dot(int x, int y) {
-		this.x = x;
-		this.y = y;
-	}
+class Dot{
+    int x;
+    int y;
+    public Dot(int x,int y) {
+        this.x=x;
+        this.y=y;
+    }
 }
 
-public class Main {
+public class Main{
 
-	static int lab[][];
-	static int tempLab[][];
-	static int n, m;
-	static int ans = 0;
+    static int lab[][];
+    static int tempLab[][];
+    static int n,m;
+    static int ans = 0;
 
-	static int dx[] = { 0, 0, -1, 1 };
-	static int dy[] = { -1, 1, 0, 0 };
+    static int dx[] = {0,0,-1,1};
+    static int dy[] = {-1,1,0,0};
 
-	static Queue<Dot> virus = new LinkedList<>();
+    static Queue<Dot> virus=new LinkedList<>();
+    //Áöµµ º¹»ç
+    static void mapCopy(int a[][], int b[][]){
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < m; j++) {
+                a[i][j] = b[i][j];
+            }
+        }
+    }
+    //¹ÙÀÌ·¯½º ÆÛÆ®¸®±â(BFS)
+    static void virusSpread(){
+        //SpreadLabÀº 3°³ÀÇ º®À¸·Î ¸·Àº ÈÄ ¹ÙÀÌ·¯½º°¡ ÆÛÁ³À» ¶§ÀÇ ¿¬±¸¼ÒÀÇ »óÈ²À» ÀúÀåÇÏ´Â°÷.
+        int SpreadLab[][]=new int[n][m];
+        mapCopy(SpreadLab, tempLab);
+        Queue<Dot> q=new LinkedList<>(virus);
 
-//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
-	static void mapCopy(int a[][], int b[][]) {
-		for (int i = 0; i < n; i++) {
-			for (int j = 0; j < m; j++) {
-				a[i][j] = b[i][j];
-			}
-		}
-	}
+        while (!q.isEmpty()) {
+            Dot d = q.poll();
+            int x = d.x;
+            int y = d.y;
 
-//ï¿½ï¿½ï¿½Ì·ï¿½ï¿½ï¿½ ï¿½ï¿½Æ®ï¿½ï¿½ï¿½ï¿½(BFS)
-	static void virusSpread() {
-		// SpreadLabï¿½ï¿½ 3ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½Ì·ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È²ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´Â°ï¿½.
-		int SpreadLab[][] = new int[n][m];
-		mapCopy(SpreadLab, tempLab);
-		Queue<Dot> q = new LinkedList<>(virus);
+            for(int i = 0; i < 4; i++){
+                int nx = x + dx[i];
+                int ny = y + dy[i];
+                //¿¬±¸¼Ò ¹üÀ§ ¾È¿¡ °¨¿°µÇÁö ¾ÊÀº ¿µ¿ª¸¸ ¿À¿°½ÃÅ³ ¼ö ÀÖ´Ù.
+                if(0<=nx && nx<m && 0<=ny && ny<n){
+                    if(SpreadLab[ny][nx] == 0){
+                        SpreadLab[ny][nx] = 2;
+                        q.offer(new Dot(nx, ny));
+                    }
+                }
+            }
+        }
+        //¿¬±¸¼Ò¿¡ ¿À¿°µÇÁö ¾ÊÀº ºÎºÐ Ã¼Å©.
+        int cnt = 0;
+        for(int i = 0; i < n; i++){
+            for(int j = 0; j < m; j++){
+                if(SpreadLab[i][j] == 0)
+                    cnt+=1;
+            }
+        }
+        ans = Math.max(ans, cnt);
+    }
 
-		while (!q.isEmpty()) {
-			Dot d = q.poll();
-			int x = d.x;
-			int y = d.y;
+    //º® ¼¼¿ì±â(Àç±ÍÈ£Ãâ »ç¿ë)
+    static void wall(int cnt){
+        //3°³ÀÇ º®ÀÌ ¼¼¿öÁ³À» ¶§, ¹ÙÀÌ·¯½º¸¦ ÆÛÆ®¸°´Ù.
+        if(cnt == 3){
+            virusSpread();
+            return;
+        }
+        //º® ¼¼¿ì´Â ºÎºÐ.
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < m; j++) {
+                if(tempLab[i][j]==0){
+                    tempLab[i][j] = 1;
+                    wall(cnt+1);
+                    //¸ðµç °æ¿ìÀÇ ¼ö¸¦ ³Ö¾î¾ßÇÏ¹Ç·Î ±âÁ¸ÀÇ 1À» 0À¸·Î ¹Ù²Ù¾îÁÖ´Â ¿ªÈ°
+                    tempLab[i][j] = 0;
+                }
+            }
+        }
+    }
 
-			for (int i = 0; i < 4; i++) {
-				int nx = x + dx[i];
-				int ny = y + dy[i];
-				// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½È¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Å³ ï¿½ï¿½ ï¿½Ö´ï¿½.
-				if (0 <= nx && nx < m && 0 <= ny && ny < n) {
-					if (SpreadLab[ny][nx] == 0) {
-						SpreadLab[ny][nx] = 2;
-						q.offer(new Dot(nx, ny));
-					}
-				}
-			}
-		}
-		// ï¿½ï¿½ï¿½ï¿½ï¿½Ò¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Îºï¿½ Ã¼Å©.
-		int cnt = 0;
-		for (int i = 0; i < n; i++) {
-			for (int j = 0; j < m; j++) {
-				if (SpreadLab[i][j] == 0)
-					cnt += 1;
-			}
-		}
-		ans = Math.max(ans, cnt);
-	}
-
-//ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½È£ï¿½ï¿½ ï¿½ï¿½ï¿½)
-	static void wall(int cnt) {
-		// 3ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½, ï¿½ï¿½ï¿½Ì·ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ®ï¿½ï¿½ï¿½ï¿½.
-		if (cnt == 3) {
-			virusSpread();
-			return;
-		}
-		// ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Îºï¿½.
-		for (int i = 0; i < n; i++) {
-			for (int j = 0; j < m; j++) {
-				if (tempLab[i][j] == 0) {
-					tempLab[i][j] = 1;
-					wall(cnt + 1);
-					// ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ö¾ï¿½ï¿½ï¿½Ï¹Ç·ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 1ï¿½ï¿½ 0ï¿½ï¿½ï¿½ï¿½ ï¿½Ù²Ù¾ï¿½ï¿½Ö´ï¿½ ï¿½ï¿½È°
-					tempLab[i][j] = 0;
-				}
-			}
-		}
-	}
-
-	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);
-		n = sc.nextInt();
-		m = sc.nextInt();
-		lab = new int[n][m];
-		tempLab = new int[n][m];
-		for (int i = 0; i < n; i++) {
-			for (int j = 0; j < m; j++) {
-				lab[i][j] = sc.nextInt();
-				if (lab[i][j] == 2) {
-					virus.offer(new Dot(j, i));
-				}
-			}
-		}
-		// ï¿½ï¿½ï¿½ï¿½ï¿½Ò¿ï¿½ï¿½ï¿½ 0ï¿½ï¿½ ï¿½Îºï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ï¹Ç·ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
-		for (int i = 0; i < n; i++) {
-			for (int j = 0; j < m; j++) {
-				if (lab[i][j] == 0) {
-					mapCopy(tempLab, lab);
-					tempLab[i][j] = 1;
-					wall(1);
-					tempLab[i][j] = 0;
-				}
-			}
-		}
-		System.out.printf("%d\n", ans);
-		sc.close();
-	}
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+        n=sc.nextInt();
+        m=sc.nextInt();
+        lab=new int[n][m];
+        tempLab=new int[n][m];
+        for(int i = 0; i < n; i++){
+            for(int j = 0; j < m; j++){
+                lab[i][j]=sc.nextInt();
+                if(lab[i][j]==2){
+                    virus.offer(new Dot(j, i));
+                }
+            }
+        }
+        //¿¬±¸¼Ò¿¡¼­ 0ÀÎ ºÎºÐÀ» ¸ðµÎ º®À» ¼¼¿ö¾ß ÇÏ¹Ç·Î ´ÙÀ½°ú °°ÀÌ ÁøÇà.
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < m; j++) {
+                if(lab[i][j] == 0){
+                    mapCopy(tempLab,lab);
+                    tempLab[i][j] =1;
+                    wall(1);
+                    tempLab[i][j] = 0;
+                }
+            }
+        }
+        System.out.printf("%d\n",ans);
+        sc.close();
+    }
 }

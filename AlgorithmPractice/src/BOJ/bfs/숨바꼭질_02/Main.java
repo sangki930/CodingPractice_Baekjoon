@@ -1,4 +1,4 @@
-package BOJ.bfs.ìˆ¨ë°”ê¼­ì§ˆ_02;
+package BOJ.bfs.¼û¹Ù²ÀÁú_02;
 
 import java.util.LinkedList;
 import java.util.Queue;
@@ -15,21 +15,21 @@ public class Main {
     }
 
     static String bfs(int num, int K) {
-    	
-    	if(num>=K) {
-    		return (num-K)+"\n"+1;
-    	}
-    	
+
+        if(num>=K) {
+            return (num-K)+"\n"+1;
+        }
+
         Queue<Integer> q = new LinkedList<>();
         q.add(num);
         check[num] = 1;
         int minTime = Integer.MAX_VALUE,cnt=0;
-        
+
         while (!q.isEmpty()) {
             int now = q.poll();
 
             if(minTime<check[now]) break;
-            
+
             for (int i = 0; i < 3; i++) {
                 int next;
 
@@ -40,22 +40,22 @@ public class Main {
                 } else {
                     next = now * 2;
                 }
-                
+
                 if(next >= 0 && next < check.length) {
                     if (next == K) {
 //                      System.out.println(check[now]);
-                    	minTime = check[now];
-                      cnt++;
-                  }
+                        minTime = check[now];
+                        cnt++;
+                    }
 
-                  if (check[next] == 0 || check[next]==check[now]+1) {
-                      q.add(next);
-                      check[next] = check[now] + 1;
-                  }
+                    if (check[next] == 0 || check[next]==check[now]+1) {
+                        q.add(next);
+                        check[next] = check[now] + 1;
+                    }
                 }
             }
         }
-        
+
         return minTime+"\n"+cnt;
     }
 }

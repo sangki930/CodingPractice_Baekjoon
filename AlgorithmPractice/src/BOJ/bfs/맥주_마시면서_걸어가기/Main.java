@@ -1,4 +1,4 @@
-package BOJ.bfs.ë§¥ì£¼_ë§ˆì‹œë©´ì„œ_ê±¸ì–´ê°€ê¸°;
+package BOJ.bfs.¸ÆÁÖ_¸¶½Ã¸é¼­_°É¾î°¡±â;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -7,53 +7,53 @@ import java.util.ArrayList;
 import java.util.List;
 
 class Point{
-	int x,y;
-	public Point(int x, int y) {
-		this.x = x;
-		this.y = y;
-	}
-	
+    int x,y;
+    public Point(int x, int y) {
+        this.x = x;
+        this.y = y;
+    }
+
 }
 
 public class Main {
 
-	public static void main(String[] args) throws IOException {
-		// TODO Auto-generated method stub
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		
-		int t = Integer.parseInt(br.readLine());
-		for(int i=0;i<t;i++) {
-			int n = Integer.parseInt(br.readLine());
-			int[][] dist = new int[n+2][n+2];
-			boolean[][] v = new boolean[n+2][n+2];
-			List<Point> list = new ArrayList<>();
-			String[] input;
-			
-			for(int j=0;j<=n+1;j++) {
-				input = br.readLine().split(" ");
-				list.add(new Point(Integer.parseInt(input[0]),Integer.parseInt(input[1])));
-			}
-			
-			for(int j=0;j<=n+1;j++) {
-				for(int k=0;k<=n+1;k++) {
-					Point p1 = list.get(j), p2 = list.get(k);
-					dist[j][k] = Math.abs(p1.x-p2.x)+Math.abs(p1.y-p2.y);
-					if(dist[j][k]<=50*20) { // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ã¸é¼­ ï¿½ï¿½ ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½
-						v[j][k]=true;
-					}
-				}
-			}
-			
-			for(int j=0;j<=n+1;j++)
-				for(int k=0;k<=n+1;k++)
-					for(int l=0;l<n+1;l++)
-						if(v[k][j] && v[j][l])
-							v[k][l]=true;
-			
-			System.out.println(v[n+1][0] ? "happy" : "sad");
-		}
-		
-		br.close();
-	}
+    public static void main(String[] args) throws IOException {
+        // TODO Auto-generated method stub
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+        int t = Integer.parseInt(br.readLine());
+        for(int i=0;i<t;i++) {
+            int n = Integer.parseInt(br.readLine());
+            int[][] dist = new int[n+2][n+2];
+            boolean[][] v = new boolean[n+2][n+2];
+            List<Point> list = new ArrayList<>();
+            String[] input;
+
+            for(int j=0;j<=n+1;j++) {
+                input = br.readLine().split(" ");
+                list.add(new Point(Integer.parseInt(input[0]),Integer.parseInt(input[1])));
+            }
+
+            for(int j=0;j<=n+1;j++) {
+                for(int k=0;k<=n+1;k++) {
+                    Point p1 = list.get(j), p2 = list.get(k);
+                    dist[j][k] = Math.abs(p1.x-p2.x)+Math.abs(p1.y-p2.y);
+                    if(dist[j][k]<=50*20) { // ???? ???©ª? ?? ?? ??? ??
+                        v[j][k]=true;
+                    }
+                }
+            }
+
+            for(int j=0;j<=n+1;j++)
+                for(int k=0;k<=n+1;k++)
+                    for(int l=0;l<n+1;l++)
+                        if(v[k][j] && v[j][l])
+                            v[k][l]=true;
+
+            System.out.println(v[n+1][0] ? "happy" : "sad");
+        }
+
+        br.close();
+    }
 
 }

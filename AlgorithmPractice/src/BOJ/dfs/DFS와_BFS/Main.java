@@ -1,83 +1,83 @@
-package BOJ.dfs.DFSì™€_BFS;
+package BOJ.dfs.DFS¿Í_BFS;
 
 import java.util.*;
 
 public class Main{
-	
-	static int map[][];
-	static boolean[] visit;
-	static ArrayList<TreeMap<Integer,Integer>> arrayList;
-	static int n,m,v;
-	
-	public static void dfs(int i) {
-		visit[i] = true;
-		System.out.print(i+" ");
-		TreeMap<Integer,Integer> tmp = arrayList.get(i);
-		for(int j: tmp.keySet()) {
-			if(visit[j]==false) {
-				dfs(j);
-			}
-			
-		}
-		
-	}
-	
-	public static void bfs(int i) {
-		Queue<Integer> queue = new LinkedList<Integer>();
-		queue.offer(i);
-		visit[i] = true;
-		//ï¿½æ¹®ï¿½ß´Ù´ï¿½ ï¿½ï¿½ï¿½ï¿½ Ç¥ï¿½ï¿½
-		while(!queue.isEmpty()) {
-			
-			int temp = queue.poll();
-			//Ã¹ ï¿½ï¿½Â° ï¿½æ¹®ï¿½ï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½ï¿½ï¿½Ö±ï¿½ï¿½ ï¿½Ñ´ï¿½.
-			System.out.print(temp + " ");
-			
-			for(int k=1;k<=n;k++) {
-				if(map[temp][k]==1 && visit[k]==false) {
-					queue.offer(k);
-					visit[k] = true;
-				}
-			}
-		}
-		
-	}
-	
-	public static void main(String[] args) {
-		
-		Scanner sc = new Scanner(System.in);
-		String s = sc.nextLine();
-		StringTokenizer st = new StringTokenizer(s," ");
-		n=Integer.parseInt(st.nextToken());
-		m=Integer.parseInt(st.nextToken());
-		v=Integer.parseInt(st.nextToken());
-		map = new int[n+1][n+1];
-		visit = new boolean[n+1];
-		arrayList  = new ArrayList<>();
-		for(int j=0;j<n+1;j++) {
-			Arrays.fill(map[j], 0);
-			arrayList.add(new TreeMap<Integer,Integer>());
-		}
-		Arrays.fill(visit, false);//ï¿½æ¹®ï¿½ï¿½å¸¦ falseï¿½ï¿½ Ã¤ï¿½ï¿½
-		
-		for(int i=0;i<m;i++) {
-			String edge = sc.nextLine(); 
-			StringTokenizer st1 = new StringTokenizer(edge," "); 
-			int a = Integer.parseInt(st1.nextToken()); 
-			int b = Integer.parseInt(st1.nextToken()); 
-			map[a][b]=1; 
-			map[b][a]=1; 
-			arrayList.get(a).put(b, a); 
-			arrayList.get(b).put(a, b);
 
-		}
-		
-		dfs(v);
-		System.out.println();
-		Arrays.fill(visit, false);
-		bfs(v);
-		
-	}
-	
-	
+    static int map[][];
+    static boolean[] visit;
+    static ArrayList<TreeMap<Integer,Integer>> arrayList;
+    static int n,m,v;
+
+    public static void dfs(int i) {
+        visit[i] = true;
+        System.out.print(i+" ");
+        TreeMap<Integer,Integer> tmp = arrayList.get(i);
+        for(int j: tmp.keySet()) {
+            if(visit[j]==false) {
+                dfs(j);
+            }
+
+        }
+
+    }
+
+    public static void bfs(int i) {
+        Queue<Integer> queue = new LinkedList<Integer>();
+        queue.offer(i);
+        visit[i] = true;
+        //?ìÜ???? ???? ???
+        while(!queue.isEmpty()) {
+
+            int temp = queue.poll();
+            //? ??¡Æ ?ìÜ?? ????? ?????? ???.
+            System.out.print(temp + " ");
+
+            for(int k=1;k<=n;k++) {
+                if(map[temp][k]==1 && visit[k]==false) {
+                    queue.offer(k);
+                    visit[k] = true;
+                }
+            }
+        }
+
+    }
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+        String s = sc.nextLine();
+        StringTokenizer st = new StringTokenizer(s," ");
+        n=Integer.parseInt(st.nextToken());
+        m=Integer.parseInt(st.nextToken());
+        v=Integer.parseInt(st.nextToken());
+        map = new int[n+1][n+1];
+        visit = new boolean[n+1];
+        arrayList  = new ArrayList<>();
+        for(int j=0;j<n+1;j++) {
+            Arrays.fill(map[j], 0);
+            arrayList.add(new TreeMap<Integer,Integer>());
+        }
+        Arrays.fill(visit, false);//?ìÜ??? false?? ???
+
+        for(int i=0;i<m;i++) {
+            String edge = sc.nextLine();
+            StringTokenizer st1 = new StringTokenizer(edge," ");
+            int a = Integer.parseInt(st1.nextToken());
+            int b = Integer.parseInt(st1.nextToken());
+            map[a][b]=1;
+            map[b][a]=1;
+            arrayList.get(a).put(b, a);
+            arrayList.get(b).put(a, b);
+
+        }
+
+        dfs(v);
+        System.out.println();
+        Arrays.fill(visit, false);
+        bfs(v);
+
+    }
+
+
 }
