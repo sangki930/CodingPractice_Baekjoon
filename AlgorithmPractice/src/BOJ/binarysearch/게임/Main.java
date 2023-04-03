@@ -9,7 +9,7 @@ public class Main {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-        String input[]=br.readLine().split(" ");
+        String[] input=br.readLine().split(" ");
 
         long x = Long.parseLong(input[0]);
         long y = Long.parseLong(input[1]);
