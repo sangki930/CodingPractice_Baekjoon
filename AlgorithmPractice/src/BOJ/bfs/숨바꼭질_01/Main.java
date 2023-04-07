@@ -1,5 +1,4 @@
-package BOJ.bfs.ìˆ¨ë°”ê¼­ì§ˆ_01;
-
+package BOJ.bfs.¼û¹Ù²ÀÁú_01;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Scanner;
