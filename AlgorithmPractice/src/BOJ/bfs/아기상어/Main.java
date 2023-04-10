@@ -21,7 +21,7 @@ class Point{
         return "Point [x=" + x + ", y=" + y + ", dis=" + dis + "]";
     }
 }
-
+// 아기상어
 public class Main {
 
     static int[] dx = {-1,0,1,0}, dy = {0,-1,0,1};
