@@ -87,7 +87,6 @@ public class Main {
                     count--; // 지날 수 있는 길 -1
                 }
             }
-
             time++;
             if (count == 0) { // 더이상 지날 수 있는 길이 없다면 (탐색 가능한 길이 없다면)
                 answer = time;
