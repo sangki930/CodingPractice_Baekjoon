@@ -48,7 +48,6 @@ class Main {
                 }
             }
         }
-
         // solution
         if (originEmptySpace == 0) {
             System.out.println(0);
