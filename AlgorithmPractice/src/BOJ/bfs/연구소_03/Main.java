@@ -91,7 +91,7 @@ class Main {
                 if (nx < 0 || nx >= N || ny < 0 || ny >= N) continue;
                 if (infected[nx][ny] || arr[nx][ny] == 1) continue;
 
-                if(0<= nx && nx<N && 0<=ny && ny<N && !infected[nx][ny] && arr[nx][ny]!=1) {
+                if(!infected[nx][ny] && arr[nx][ny]!=1) {
                     if (arr[nx][ny] == 0) {
                         emptySpace--;
                     }
