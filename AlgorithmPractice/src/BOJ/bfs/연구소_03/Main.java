@@ -83,7 +83,6 @@ class Main {
 
         while (!queue.isEmpty()) {
             Virus virus = queue.poll();
-
             for (int i = 0; i < 4; i++) {
                 int nx = virus.x + dx[i];
                 int ny = virus.y + dy[i];
