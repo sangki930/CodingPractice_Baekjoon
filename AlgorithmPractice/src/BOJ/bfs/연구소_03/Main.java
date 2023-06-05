@@ -69,7 +69,7 @@ class Main {
             selectVirus(i + 1, selectCount + 1);
         }
     }
-
+//
     // BFS 로 바이러스를 퍼트린다
     static void spreadVirus(int emptySpace) {
         LinkedList<Virus> queue = new LinkedList<>();
