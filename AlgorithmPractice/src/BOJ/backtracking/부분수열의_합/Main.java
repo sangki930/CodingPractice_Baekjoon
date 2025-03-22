@@ -1,4 +1,4 @@
-package BOJ.backtracking.ºÎºĞ¼ö¿­ÀÇ_ÇÕ;
+package BOJ.backtracking.ë¶€ë¶„ìˆ˜ì—´ì˜_í•©;
 
 import java.io.BufferedReader;
 import java.io.IOException;
